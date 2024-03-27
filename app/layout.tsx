@@ -1,8 +1,24 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import {
+  Inter,
+  Roboto,
+  Rubik_Scribble,
+  Poppins,
+  Kanit,
+} from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({ subsets: ["latin"], weight: "500" });
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["400", "700", "900", "300", "100"],
+});
+const rubic_Scribble = Rubik_Scribble({
+  subsets: ["latin"],
+  weight: "400",
+});
+const kanit = Kanit({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={poppins.className}>{children}</body>
     </html>
   );
 }

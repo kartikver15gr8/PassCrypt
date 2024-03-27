@@ -1,9 +1,12 @@
 import Image from "next/image";
+import Navbar from "@/components/navbar";
+import Landing from "@/components/landing";
 
 export default function Home() {
   return (
     <div>
-      <h1>Secure All Your Passwords</h1>
+      <Navbar />
+      <Landing />
     </div>
   );
 }

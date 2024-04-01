@@ -1,3 +1,5 @@
+import { Providers } from "./providers";
+
 import type { Metadata } from "next";
 import {
   Inter,
@@ -32,7 +34,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={poppins.className}>{children}</body>
+      <body className={poppins.className}>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

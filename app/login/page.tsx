@@ -4,8 +4,17 @@ import { Button } from "@/components/ui/button";
 import axios from "axios";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
+import { useSession } from "next-auth/react";
+import db from "@/db";
 
 export default function Login() {
+  const router = useRouter();
+  const session = useSession();
+
+  if (session.data) {
+    router.push("/");
+  }
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -28,7 +37,6 @@ export default function Login() {
     }
   };
 
-  const router = useRouter();
   return (
     <div className="grid grid-cols-2  h-[100vh]">
       <div className="grid bg-[#F5F5F5] p-5 ">

@@ -128,5 +128,15 @@ export const NEXT_AUTH_CONFIG = {
       }
       return session;
     },
+    // events: {
+    //   async signIn({ user }) {
+    //     console.log({ user }, "Signed in");
+    //     return { user };
+    //   },
+    // },
+  },
+
+  pages: {
+    signIn: "/login",
   },
 };

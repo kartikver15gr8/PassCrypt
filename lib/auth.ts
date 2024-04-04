@@ -1,6 +1,6 @@
 import CredentialsProvider from "next-auth/providers/credentials";
-import GitHubProvider from "next-auth/providers/github";
 import { SignJWT, importJWK } from "jose";
+import { type NextAuthOptions } from "next-auth";
 import db from "@/db";
 
 const generateJWT = async (payload: any) => {
@@ -18,7 +18,7 @@ const generateJWT = async (payload: any) => {
 };
 
 const validateUser = async (email: string, password: string) => {
-  const user = await db.user.findFirst({
+  const user = await db.user.findUnique({
     where: {
       email: email,
       password: password,
@@ -36,7 +36,7 @@ const validateUser = async (email: string, password: string) => {
   };
 };
 
-export const NEXT_AUTH_CONFIG = {
+export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: "Credentials",
@@ -105,10 +105,6 @@ export const NEXT_AUTH_CONFIG = {
           };
         }
       },
-    }),
-    GitHubProvider({
-      clientId: process.env.GITHUB_CLIENT_ID || "",
-      clientSecret: process.env.GITHUB_SECRET || "",
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,

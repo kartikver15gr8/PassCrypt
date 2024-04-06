@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { signIn } from "next-auth/react";
 import { useSession } from "next-auth/react";
 import db from "@/db";
@@ -12,12 +12,16 @@ export default function Login() {
   const router = useRouter();
   const session = useSession();
 
-  if (session.data) {
-    router.push("/user");
-  }
+  const userEmail = session?.data?.user?.email;
+
+  useEffect(() => {
+    if (userEmail) {
+      router.push("/user");
+    }
+  }, [userEmail, router]);
 
   const SignInTypes = z.object({
-    email: z.string().email().min(10).max(50),
+    email: z.string().min(10).max(50),
     password: z.string().min(10).max(50),
   });
 
@@ -26,6 +30,7 @@ export default function Login() {
   const [invalidInput, setInvalidInput] = useState(false);
 
   const onClickHandler = async () => {
+    setEmail(email.trim());
     const isValidInputs = SignInTypes.safeParse({ email, password });
 
     if (isValidInputs.success) {
@@ -39,7 +44,7 @@ export default function Login() {
       if (res?.ok) {
         console.log(res);
 
-        router.push("/");
+        router.push("/user");
         return res.ok;
       } else {
         console.log(`Error is: ${res?.error}`);

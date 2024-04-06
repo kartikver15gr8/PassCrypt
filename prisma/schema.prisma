@@ -27,11 +27,11 @@ model User {
 model Password {
   id Int @id @default(autoincrement())
   website String
-  username String @unique
-  pasword String 
+  username String
+  password String 
   note String?
   user User @relation(fields: [userId], references: [id])
-  userId Int @unique
+  userId Int 
 }
 
 model Card {

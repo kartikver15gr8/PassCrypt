@@ -76,24 +76,6 @@ export const authOptions: NextAuthOptions = {
           }
         }
 
-        // try {
-        //   await db.user.upsert({
-        //     where: {
-        //       email: credentials.email,
-        //     },
-        //     create: {
-        //       email: credentials.email,
-        //       password: credentials.password,
-        //     },
-        //     update: {
-        //       email: credentials.email,
-        //       password: credentials.password,
-        //     },
-        //   });
-        // } catch (e) {
-        //   console.log({ error: "error" }, e);
-        // }
-
         if (user.user) {
           console.log("User already in db");
 

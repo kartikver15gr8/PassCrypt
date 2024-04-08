@@ -1,24 +1,30 @@
 "use client";
 import { useSession } from "next-auth/react";
+import { usePathname } from "next/navigation";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import { redirect } from "next/navigation";
 
 import { useRecoilValue } from "recoil";
 import { userState } from "@/store/atom/userState";
 import { useEffect } from "react";
 
+const ACTIVE_ROUTE =
+  "p-2 h-12 items-center m-1 flex text-xl bg-sky-900 rounded-md text-white shadow-xl";
+const INACTIVE_ROUTE =
+  "p-2 h-12 items-center m-1 flex text-xl rounded-md hover:bg-sky-900 hover:text-white transition-all duration-300";
+const ACTIVE =
+  "p-2 h-16 items-center m-1 flex text-xl bg-sky-900 rounded-md text-white shadow-xl";
+const INACTIVE =
+  "p-2 h-16 items-center m-1 flex text-xl rounded-md hover:bg-sky-900 hover:text-white transition-all duration-300";
+
 export default function Sidebar() {
   const router = useRouter();
   const session = useSession();
+  const pathname = usePathname();
 
   const userEmail = session.data?.user?.email;
-
-  useEffect(() => {
-    if (!userEmail) {
-      router.push("/login");
-    }
-  }, [userEmail, router]);
 
   return (
     <div className="bg-[#D9E6E9] w-[25%]  ">
@@ -45,7 +51,11 @@ export default function Sidebar() {
       </div>
       <div className="flex p-2 text-black flex-col ">
         <ul>
-          <li className="p-2 h-12 items-center flex text-xl">
+          <li
+            className={
+              pathname === "/user/allitems" ? ACTIVE_ROUTE : INACTIVE_ROUTE
+            }
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="1.5em"
@@ -59,7 +69,11 @@ export default function Sidebar() {
             </svg>
             <p className="ml-2">All items</p>
           </li>
-          <li className="p-2 h-12 items-center flex text-xl">
+          <li
+            className={
+              pathname === "/user/favorites" ? ACTIVE_ROUTE : INACTIVE_ROUTE
+            }
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="1.5em"
@@ -77,7 +91,9 @@ export default function Sidebar() {
             </svg>
             <p className="ml-2">Favorities</p>
           </li>
-          <li className="p-2 h-12 items-center flex text-xl">
+          <li
+            className={pathname === "/user/bin" ? ACTIVE_ROUTE : INACTIVE_ROUTE}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="1.5em"
@@ -96,7 +112,7 @@ export default function Sidebar() {
       <div className="flex p-2 text-black flex-col">
         <ul className=" w-[100%]">
           <li
-            className="p-2 h-16 items-center flex text-xl"
+            className={pathname === "/user/passwords" ? ACTIVE : INACTIVE}
             onClick={() => {
               router.push("/user/passwords");
             }}
@@ -117,7 +133,12 @@ export default function Sidebar() {
             </div>{" "}
             <p>Logins</p>
           </li>
-          <li className="p-2 h-16 items-center flex text-xl">
+          <li
+            className={pathname === "/user/payments" ? ACTIVE : INACTIVE}
+            onClick={() => {
+              router.push("/user/payments");
+            }}
+          >
             {" "}
             <div className="flex p-2 ">
               <svg
@@ -137,7 +158,12 @@ export default function Sidebar() {
             </div>{" "}
             <p>Payments</p>
           </li>
-          <li className="p-2 h-16 items-center flex text-xl">
+          <li
+            className={pathname === "/user/securenote" ? ACTIVE : INACTIVE}
+            onClick={() => {
+              router.push("/user/securenote");
+            }}
+          >
             {" "}
             <div className="flex p-2 ">
               <svg
@@ -154,7 +180,12 @@ export default function Sidebar() {
             </div>{" "}
             <p>Secure note</p>
           </li>
-          <li className="p-2 h-16 items-center flex text-xl">
+          <li
+            className={pathname === "/user/identity" ? ACTIVE : INACTIVE}
+            onClick={() => {
+              router.push("/user/identity");
+            }}
+          >
             {" "}
             <div className="flex p-2 ">
               <svg
@@ -173,15 +204,6 @@ export default function Sidebar() {
           </li>
         </ul>
       </div>
-      {/* <div className="w-[100%] bg-sky-500 p-2 h-16 items-center flex text-xl text-sky-900">
-          {session.data?.user?.email}
-        </div> */}
     </div>
   );
 }
-
-/* {session ? (
-  <div className="mr-2">{session.data?.user?.email}</div>
-) : (
-  <div>yoho</div>
-)} */

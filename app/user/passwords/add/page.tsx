@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
 import db from "@/db";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import axios from "axios";
 
 export default function Add() {

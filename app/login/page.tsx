@@ -5,6 +5,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { signIn } from "next-auth/react";
 import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 import db from "@/db";
 import { z } from "zod";
 
@@ -16,7 +17,7 @@ export default function Login() {
 
   useEffect(() => {
     if (userEmail) {
-      router.push("/user");
+      redirect("/user/passwords");
     }
   }, [userEmail, router]);
 
@@ -27,15 +28,22 @@ export default function Login() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [invalidInput, setInvalidInput] = useState(false);
 
+  const togglePasswordVisibility = () => {
+    setShowPassword(true);
+    setTimeout(() => {
+      setShowPassword(false);
+    }, 2000);
+  };
+
   const onClickHandler = async () => {
-    setEmail(email.trim());
     const isValidInputs = SignInTypes.safeParse({ email, password });
 
     if (isValidInputs.success) {
       const res = await signIn("credentials", {
-        email: email,
+        email: email.trim(),
         password: password,
         redirect: false,
       });
@@ -44,7 +52,7 @@ export default function Login() {
       if (res?.ok) {
         console.log(res);
 
-        router.push("/user");
+        // router.push("/user");
         return res.ok;
       } else {
         console.log(`Error is: ${res?.error}`);
@@ -106,14 +114,22 @@ export default function Login() {
                   setEmail(e.target.value);
                 }}
               />
-              <input
-                className="text-black p-3 border rounded shadow-md shadow-red-500  mb-5"
-                type="password"
-                placeholder="at least 10 characters."
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
-              />
+              <div className="border rounded shadow-md mb-5 flex justify-between items-center">
+                <input
+                  className="text-black border-none p-3"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Enter your password."
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                />
+                <Button
+                  className="bg-sky-900 m-1"
+                  onClick={togglePasswordVisibility}
+                >
+                  view
+                </Button>
+              </div>
               <Button
                 className="bg-red-900 shadow-md shadow-red-600"
                 onClick={onClickHandler}
@@ -133,14 +149,24 @@ export default function Login() {
                   setEmail(e.target.value);
                 }}
               />
-              <input
-                className="text-black p-3 border rounded shadow-md mb-5"
-                type="password"
-                placeholder="Enter your password."
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
-              />
+
+              <div className="border rounded shadow-md mb-5 flex justify-between items-center">
+                <input
+                  className="text-black border-none p-3"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Enter your password."
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                />
+                <Button
+                  className="bg-sky-900 m-1"
+                  onClick={togglePasswordVisibility}
+                >
+                  view
+                </Button>
+              </div>
+
               <Button
                 className="bg-sky-900 shadow-md shadow-sky-900"
                 onClick={onClickHandler}

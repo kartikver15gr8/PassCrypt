@@ -1,7 +1,7 @@
 "use client";
 import { useSession } from "next-auth/react";
 import { signOut } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 
 import { useRecoilValue } from "recoil";
@@ -18,7 +18,7 @@ export default function User() {
 
   useEffect(() => {
     if (!userEmail) {
-      router.push("/login");
+      redirect("/login");
     }
   }, [userEmail, router]);
 

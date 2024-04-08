@@ -38,11 +38,11 @@ model Card {
   id Int @id @default(autoincrement())
   cardholder String
   cardname String
-  cardnumber Int @unique
-  cvv Int @unique
-  expiredate DateTime
+  cardnumber String @unique
+  cvv String @unique
+  expiredate String
   user User @relation(fields: [userId], references: [id])
-  userId Int @unique
+  userId Int 
 }
 
 model Note {

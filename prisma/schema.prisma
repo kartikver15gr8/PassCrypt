@@ -47,6 +47,7 @@ model Card {
 
 model Note {
   id Int @id @default(autoincrement())
+  title String @unique
   description String
   user User @relation(fields: [userId], references: [id])
   userId Int

@@ -2,6 +2,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { SignJWT, importJWK } from "jose";
 import { type NextAuthOptions } from "next-auth";
 import db from "@/db";
+import { Hash, Match } from "./bcrypt";
 
 const generateJWT = async (payload: any) => {
   const secret = process.env.JWT_SECRET || "S3CrET";
@@ -21,15 +22,17 @@ const validateUser = async (email: string, password: string) => {
   const user = await db.user.findUnique({
     where: {
       email: email,
-      password: password,
     },
   });
   if (user) {
     const jwt = await generateJWT({ email: email });
-    return {
-      user: user,
-      token: jwt,
-    };
+    const matched = await Match(password, user.password);
+    if (matched) {
+      return {
+        user: user,
+        token: jwt,
+      };
+    }
   }
   return {
     data: null,
@@ -54,6 +57,9 @@ export const authOptions: NextAuthOptions = {
           credentials.email,
           credentials.password
         );
+        console.log(credentials.password);
+
+        const hashedPass = await Hash(credentials.password);
 
         if (!user.user) {
           const jwt = await generateJWT({ email: credentials.email });
@@ -61,14 +67,14 @@ export const authOptions: NextAuthOptions = {
             await db.user.create({
               data: {
                 email: credentials.email,
-                password: credentials.password,
+                password: hashedPass,
               },
             });
             console.log("Fresh user created");
 
             return {
               email: credentials.email,
-              password: credentials.password,
+              password: hashedPass,
               token: jwt,
             };
           } catch (error) {
@@ -82,7 +88,7 @@ export const authOptions: NextAuthOptions = {
           const jwt = await generateJWT({ email: credentials.email });
           return {
             email: credentials?.email,
-            password: credentials?.password,
+            password: user.user.password,
             token: jwt,
           };
         }

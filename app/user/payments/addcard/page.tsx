@@ -19,7 +19,7 @@ export default function AddCard() {
   const handleOnClick = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/user/createcard",
+        "http://localhost:3000/api/user/card/createcard",
         {
           cardname: cardname,
           cardholder: cardholder,

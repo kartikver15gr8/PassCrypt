@@ -18,7 +18,7 @@ export default function Add() {
   const handleOnClick = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/user/createpassword",
+        "http://localhost:3000/api/user/password/createpassword",
         {
           website: website,
           username: username,

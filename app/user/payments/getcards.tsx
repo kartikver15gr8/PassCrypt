@@ -32,7 +32,7 @@ export async function GetCards() {
       cardnumber: "string",
       cvv: "string",
       expiredate: "string",
-      userId: "number",
+      userId: 1,
     },
   ];
 }

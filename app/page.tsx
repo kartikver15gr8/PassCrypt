@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import Navbar from "@/components/navbar";
 import Landing from "@/components/landing";
@@ -9,13 +7,7 @@ import { useSession } from "next-auth/react";
 import { userState } from "@/store/atom/userState";
 import { useRecoilValue } from "recoil";
 
-export default function Home() {
-  const userEmail = useRecoilValue(userState);
-  const router = useRouter();
-  const session = useSession();
-  if (session.data?.user?.email) {
-    router.push("/user");
-  }
+export default async function Home() {
   return (
     <div>
       <Navbar />

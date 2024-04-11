@@ -3,6 +3,8 @@ import AppBar from "@/components/user/appbar";
 import { getPassword } from "./getpassword";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 type UserPassword = {
   id: number;

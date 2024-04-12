@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "../ui/button";
 
 export function LoginDetails({
@@ -16,7 +16,42 @@ export function LoginDetails({
   const passRef = useRef(null);
   const [copySuccess, setCopySuccess] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [webImg, setWebImg] = useState("");
 
+  useEffect(() => {
+    if (website.indexOf("google.com") > -1) {
+      setWebImg(
+        "https://cdn.mos.cms.futurecdn.net/rjqJEKv6P9Yjy9d3KMGvp8-1200-80.jpg.webp"
+      );
+    } else if (website.indexOf("vercel.com") > -1) {
+      setWebImg(
+        "https://imgs.search.brave.com/p55hIbChvXMjbs6tDNbYRPz5AFF1dGqmwlvqUlecWyk/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9sb2dv/d2lrLmNvbS9jb250/ZW50L3VwbG9hZHMv/aW1hZ2VzL3ZlcmNl/bDE4NjguanBn"
+      );
+    } else if (website.indexOf("stripe.com") > -1) {
+      setWebImg(
+        "https://imgs.search.brave.com/mKQrJcJ78rpcLWcnweT0K7IK4DIBX7yeUgq3vWLyoaU/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9sb2dv/d2lrLmNvbS9jb250/ZW50L3VwbG9hZHMv/aW1hZ2VzL3N0cmlw/ZTE0NjEuanBn"
+      );
+    } else if (website.indexOf("facebook.com") > -1) {
+      setWebImg(
+        "https://imgs.search.brave.com/4Q66bgjShg3SWohmNCJbTbr6QGsc3ppU3XCiJ4vDKQ4/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMuZGVzaWduYm9v/bS5jb20vd3AtY29u/dGVudC91cGxvYWRz/LzIwMjMvMDkvZmFj/ZWJvb2stbmV3LWxv/Z28tY2hhbmdlLWRl/c2lnbmJvb20tMDIu/anBn"
+      );
+    } else if (
+      website.indexOf("x.com") > -1 ||
+      website.indexOf("twitter.com") > -1
+    ) {
+      setWebImg(
+        "https://imgs.search.brave.com/2me7CdPyquP0PBwlEUE2B1NisolIyb3HlbRTEdKM8Yw/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9nYWRn/ZXRtYXRlcy5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMjMv/MDcveC1jb20tbG9n/by5wbmc"
+      );
+    } else if (website.indexOf("youtube.com") > -1) {
+      setWebImg(
+        "https://cdn.mos.cms.futurecdn.net/8gzcr6RpGStvZFA2qRt4v6-1200-80.jpg.webp"
+      );
+    } else if (website.indexOf("instagram.com") > -1) {
+      setWebImg(
+        "https://i.guim.co.uk/img/media/22e32c1b1de40ed7103e2e2e8995b742ac600bd6/70_0_717_430/master/717.jpg?width=620&dpr=2&s=none"
+      );
+    }
+  }, []);
   const togglePasswordVisibility = () => {
     setShowPassword(true);
     setTimeout(() => {
@@ -45,13 +80,22 @@ export function LoginDetails({
 
   return (
     <div className="flex m-1 p-2 border rounded items-center hover:bg-slate-300 transition-all duration-500">
-      <div
-        className={`text-white border w-16 h-10 mr-6 ml-2 bg flex justify-center items-center text-2xl  rounded-md bg-cover bg-center`}
-        style={{
-          backgroundImage:
-            "url(https://cdn.mos.cms.futurecdn.net/rjqJEKv6P9Yjy9d3KMGvp8-1200-80.jpg.webp)",
-        }}
-      ></div>
+      {webImg ? (
+        <div
+          className={`text-white border w-16 h-10 mr-6 ml-2 bg flex justify-center items-center text-2xl  rounded-md bg-cover bg-center`}
+          style={{
+            backgroundImage: `url(${webImg})`,
+          }}
+        ></div>
+      ) : (
+        <div
+          className={`text-white border w-16 h-10 mr-6 ml-2 bg flex justify-center items-center text-2xl  rounded-md bg-cover bg-center`}
+          style={{
+            backgroundImage: `url(https://imgs.search.brave.com/J2ISWKi_kjMTt725LlMdGU7MhoBV3o-G-eEOZQfrIKw/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTcy/MTY5NTUxL3Bob3Rv/L2tleS10by1zdWNj/ZXNzLmpwZz9zPTYx/Mng2MTImdz0wJms9/MjAmYz04VEFLNl8t/YXpLem5MRUJEVmJL/enBFTy1aTGpRWmZm/S1prdm1mS2NFTXE4/PQ)`,
+          }}
+        ></div>
+      )}
+
       <div id={id.toString()} className="m-1 w-[300px]">
         <a
           className="text-lg hover:text-sky-800 font-semibold"
@@ -73,7 +117,7 @@ export function LoginDetails({
           </p>
         )}
         <Button
-          className="transition-all hover:bg-slate-500 duration-500 mr-3"
+          className="transition-all hover:bg-slate-500 duration-500 mr-1"
           onClick={handleCopy}
         >
           {copySuccess ? (
@@ -144,6 +188,20 @@ export function LoginDetails({
           )}
         </Button>
       </div>
+      <Button className="transition-all hover:bg-slate-500 duration-500 ml-10">
+        <p className="mr-1">edit</p>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="1em"
+          height="1em"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="white"
+            d="M5 19h1.425L16.2 9.225L14.775 7.8L5 17.575zm-2 2v-4.25L16.2 3.575q.3-.275.663-.425t.762-.15t.775.15t.65.45L20.425 5q.3.275.438.65T21 6.4q0 .4-.137.763t-.438.662L7.25 21zM19 6.4L17.6 5zm-3.525 2.125l-.7-.725L16.2 9.225z"
+          />
+        </svg>
+      </Button>
     </div>
   );
 }

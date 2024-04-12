@@ -22,7 +22,11 @@ export default async function Notes() {
         {notes.map((elem, key) => {
           return (
             <div key={key}>
-              <NoteDetails title={elem.title} description={elem.description} />
+              <NoteDetails
+                title={elem.title}
+                description={elem.description}
+                id={elem.id}
+              />
             </div>
           );
         })}

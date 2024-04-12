@@ -1,5 +1,5 @@
 import { Button } from "./ui/button";
-export default function Landing() {
+export default async function Landing() {
   return (
     <div className="flex p-4 bg-sky-900  ">
       <div className="w-[50%] p-9">

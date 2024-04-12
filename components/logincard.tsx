@@ -22,7 +22,7 @@ export default function LoginCard() {
   }, [userEmail]);
 
   const SignInTypes = z.object({
-    email: z.string().min(10).max(50),
+    email: z.string().email().min(10).max(50),
     password: z.string().min(10).max(50),
   });
 
@@ -44,7 +44,7 @@ export default function LoginCard() {
     if (isValidInputs.success) {
       const res = await signIn("credentials", {
         email: email.trim(),
-        password: password,
+        password: password.trim(),
         redirect: false,
       });
 

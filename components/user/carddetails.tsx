@@ -37,7 +37,7 @@ export function CardDetails({
         "https://imgs.search.brave.com/fEjLdNJ1YHS5q7cPiWCO3WCtTf03_v6LBYBVk_FB58Y/rs:fit:860:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDIwLzEx/L0Rpc2NvdmVyLUxv/Z28tNTAweDMxMy5q/cGc"
       );
     }
-  }, []);
+  }, [cardname]);
 
   const [showCreds, setshowCreds] = useState(false);
 

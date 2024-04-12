@@ -38,6 +38,7 @@ export default async function Profile() {
           <img
             className="w-[200px] rounded-full flex"
             src="https://imgs.search.brave.com/5TAO179mq7HichdWUB1S5QQmmEIU5dVXyK0s3GhtHx8/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2Q2L2Nk/L2YyL2Q2Y2RmMmE1/ZGFhZjk2NDYyMTI3/Y2MzMWZiNjIxODUx/LmpwZw"
+            alt="profile"
           />
         )}
         <p className="flex text-2xl mt-10 font-bold">{data.name}</p>

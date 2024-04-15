@@ -11,13 +11,13 @@ import { userState } from "@/store/atom/userState";
 import { useEffect } from "react";
 
 const ACTIVE_ROUTE =
-  "p-2 h-12 items-center m-1 flex text-xl bg-sky-900 rounded-md text-white shadow-xl";
+  "p-2 h-12 items-center m-1 flex text-xl bg-slate-900 rounded-md text-white shadow-xl";
 const INACTIVE_ROUTE =
-  "p-2 h-12 items-center m-1 flex text-xl rounded-md hover:bg-sky-900 hover:text-white transition-all duration-300";
+  "p-2 h-12 items-center m-1 flex text-xl rounded-md hover:bg-slate-900 hover:text-white transition-all duration-300";
 const ACTIVE =
-  "p-2 h-16 items-center m-1 flex text-xl bg-sky-900 rounded-md text-white shadow-xl";
+  "p-2 h-16 items-center m-1 flex text-xl bg-slate-900 rounded-md text-white shadow-xl";
 const INACTIVE =
-  "p-2 h-16 items-center m-1 flex text-xl rounded-md hover:bg-sky-900 hover:text-white transition-all duration-300";
+  "p-2 h-16 items-center m-1 flex text-xl rounded-md hover:bg-slate-900 hover:text-white transition-all duration-300";
 
 export default function Sidebar() {
   const router = useRouter();
@@ -27,7 +27,7 @@ export default function Sidebar() {
   const userEmail = session.data?.user?.email;
 
   return (
-    <div className="bg-[#D9E6E9] w-[25%]  ">
+    <div className="bg-slate-200 w-[25%]  ">
       <div className="flex text-black p-5 shadow-md flex-row justify-between">
         <svg
           onClick={() => {

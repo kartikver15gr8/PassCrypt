@@ -6,12 +6,14 @@ import { signIn, signOut } from "next-auth/react";
 import { useSession } from "next-auth/react";
 import { userState } from "@/store/atom/userState";
 import { useRecoilValue } from "recoil";
+import Footer from "@/components/footer";
 
 export default async function Home() {
   return (
     <div>
       <Navbar />
       <Landing />
+      <Footer />
     </div>
   );
 }

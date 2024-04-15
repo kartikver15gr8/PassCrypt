@@ -8,7 +8,7 @@ export default function Loading() {
             animationDuration: "1s",
           }}
         >
-          Loading Passwords...
+          Loading Notes...
         </p>
       </div>
       <ul className="px-2 mt-4 list-none">

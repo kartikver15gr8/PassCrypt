@@ -1,6 +1,8 @@
 "use client";
+import { CARD_NO_SEC, CVV_ENCRYPT_SEC } from "@/secrets";
 import { Button } from "../ui/button";
 import { useEffect, useRef, useState } from "react";
+import CryptoJS from "crypto-js";
 
 export function CardDetails({
   id,
@@ -50,10 +52,11 @@ export function CardDetails({
 
   const handleCopy = () => {
     // Check if the Clipboard API is available
+    const decryptedCVV = decrypt(cvv);
     if (navigator.clipboard) {
-      const divContent = { cvv };
+      const divContent = { decryptedCVV };
       navigator.clipboard
-        .writeText(divContent.cvv)
+        .writeText(divContent.decryptedCVV)
         .then(() => {
           console.log("Content copied to clipboard");
           setCopySuccess(true);
@@ -67,8 +70,31 @@ export function CardDetails({
     }
   };
 
+  const decrypt = (cvv: string): string => {
+    try {
+      const cvv_secret = CVV_ENCRYPT_SEC || "S3CrET";
+      const decryptedBytes = CryptoJS.AES.decrypt(cvv, cvv_secret);
+      const decryptedCVV = decryptedBytes.toString(CryptoJS.enc.Utf8);
+
+      return decryptedCVV;
+    } catch (error) {
+      return JSON.stringify(error);
+    }
+  };
+  const decryptCardNo = (cardnumber: string): string => {
+    try {
+      const account_secret = CARD_NO_SEC || "SecR3T";
+      const decryptedBytes = CryptoJS.AES.decrypt(cardnumber, account_secret);
+      const decryptedNo = decryptedBytes.toString(CryptoJS.enc.Utf8);
+
+      return decryptedNo;
+    } catch (error) {
+      return JSON.stringify(error);
+    }
+  };
+
   return (
-    <div className="flex items-centerflex m-1 p-2 border rounded items-center hover:bg-slate-300 transition-all duration-500">
+    <div className="flex items-centerflex m-2 p-2 bg-white shadow-md rounded items-center hover:bg-slate-300 transition-all duration-500">
       <div
         className={`text-white border w-16 h-10 mr-6 ml-2 bg flex justify-center items-center text-2xl  rounded-md bg-cover bg-center`}
         style={{
@@ -78,17 +104,20 @@ export function CardDetails({
       <div id={id.toString()} className="m-1 w-[150px]">
         <p className="text-lg hover:text-sky-800 font-semibold">{cardname}</p>
         {showCreds ? (
-          <p className="text-sm">{cardnumber}</p>
+          <p className="text-sm">{decryptCardNo(cardnumber)}</p>
         ) : (
           <p className="text-sm">
-            ********{cardnumber.substring(cardnumber.length - 4)}
+            ********
+            {decryptCardNo(cardnumber).substring(
+              decryptCardNo(cardnumber).length - 4
+            )}
           </p>
         )}
       </div>
       <div className="ml-5 flex items-center w-[250px] justify-end">
         {showCreds ? (
           <p ref={cardRef} className="p-2 mr-5">
-            {cvv}
+            {decrypt(cvv)}
           </p>
         ) : (
           <p ref={cardRef} className="p-2 mr-5">

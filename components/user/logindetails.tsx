@@ -1,6 +1,8 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "../ui/button";
+import CryptoJS from "crypto-js";
+import { PASS_ENCRYPT_SEC } from "@/secrets";
 
 export function LoginDetails({
   website,
@@ -50,6 +52,10 @@ export function LoginDetails({
       setWebImg(
         "https://i.guim.co.uk/img/media/22e32c1b1de40ed7103e2e2e8995b742ac600bd6/70_0_717_430/master/717.jpg?width=620&dpr=2&s=none"
       );
+    } else if (website.indexOf("github.com") > -1) {
+      setWebImg(
+        "https://imgs.search.brave.com/KXL45Ky6mn4L5JZiL_5V069ITX6UnIz6ZTlN8LGDJfI/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93d3cu/bG9nby53aW5lL2Ev/bG9nby9HaXRIdWIv/R2l0SHViLUljb24t/V2hpdGUtRGFyay1C/YWNrZ3JvdW5kLUxv/Z28ud2luZS5zdmc.svg"
+      );
     }
   }, [website]);
   const togglePasswordVisibility = () => {
@@ -61,10 +67,11 @@ export function LoginDetails({
 
   const handleCopy = () => {
     // Check if the Clipboard API is available
+    const decryptPs = decrypt(password);
     if (navigator.clipboard) {
-      const divContent = { password };
+      const divContent = { decryptPs };
       navigator.clipboard
-        .writeText(divContent.password)
+        .writeText(divContent.decryptPs)
         .then(() => {
           console.log("Content copied to clipboard");
           setCopySuccess(true);
@@ -78,8 +85,20 @@ export function LoginDetails({
     }
   };
 
+  const decrypt = (password: string): string => {
+    try {
+      const secret = PASS_ENCRYPT_SEC || "SeCR3T";
+      const decryptedBytes = CryptoJS.AES.decrypt(password, secret);
+      const decryptedPass = decryptedBytes.toString(CryptoJS.enc.Utf8);
+
+      return decryptedPass;
+    } catch (error) {
+      return JSON.stringify(error);
+    }
+  };
+
   return (
-    <div className="flex m-1 p-2 border rounded items-center hover:bg-slate-300 transition-all duration-500">
+    <div className="flex m-2 p-2 bg-white shadow-md rounded items-center hover:bg-slate-300 transition-all duration-500">
       {webImg ? (
         <div
           className={`text-white border w-16 h-10 mr-6 ml-2 bg flex justify-center items-center text-2xl  rounded-md bg-cover bg-center`}
@@ -109,7 +128,7 @@ export function LoginDetails({
       <div className="ml-5 flex items-center w-[200px] justify-end">
         {showPassword ? (
           <p ref={passRef} className="p-2 mr-5">
-            {password}
+            {decrypt(password)}
           </p>
         ) : (
           <p ref={passRef} className="p-2 mr-5">
@@ -130,9 +149,9 @@ export function LoginDetails({
               <path
                 fill="none"
                 stroke="#18ec62"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="1.5"
                 d="m2.75 8.75l3.5 3.5l7-7.5"
               />
             </svg>
@@ -165,9 +184,9 @@ export function LoginDetails({
               <g
                 fill="none"
                 stroke="#12c471"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="1.5"
               >
                 <path d="M3 13c3.6-8 14.4-8 18 0" />
                 <path d="M12 17a3 3 0 1 1 0-6a3 3 0 0 1 0 6" />

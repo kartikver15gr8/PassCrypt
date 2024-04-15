@@ -12,7 +12,7 @@ export function NoteDetails({
   description: string;
 }) {
   return (
-    <div className="flex m-2 p-2 border bg-white shadow-md rounded items-center hover:bg-slate-300 transition-all duration-500">
+    <div className="flex m-2 p-2 border bg-white shadow-md rounded-lg items-center hover:bg-slate-300 transition-all duration-500">
       <div className="flex flex-col w-[500px]">
         <p className="text-xl font-bold">{title}</p>
         <p>{description}</p>

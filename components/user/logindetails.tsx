@@ -98,7 +98,7 @@ export function LoginDetails({
   };
 
   return (
-    <div className="flex m-2 p-2 bg-white shadow-md rounded items-center hover:bg-slate-300 transition-all duration-500">
+    <div className="flex m-2 p-2 bg-white shadow-md rounded-lg items-center hover:bg-slate-300 transition-all duration-500">
       {webImg ? (
         <div
           className={`text-white border w-16 h-10 mr-6 ml-2 bg flex justify-center items-center text-2xl  rounded-md bg-cover bg-center`}

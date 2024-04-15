@@ -1,6 +1,8 @@
 import db from "@/db";
 import { NextRequest } from "next/server";
 import { getServerSession } from "next-auth";
+import CryptoJS from "crypto-js";
+import { CVV_ENCRYPT_SEC, CARD_NO_SEC } from "@/secrets";
 
 export async function POST(req: NextRequest) {
   const session = await getServerSession();
@@ -15,14 +17,23 @@ export async function POST(req: NextRequest) {
       where: { email: userEmail },
     });
 
+    const cvv_secret = CVV_ENCRYPT_SEC || "S3CrET";
+    const encryptedCVV = CryptoJS.AES.encrypt(cvv, cvv_secret).toString();
+
+    const account_secret = CARD_NO_SEC || "SecR3T";
+    const encryptedCardNo = CryptoJS.AES.encrypt(
+      cardnumber,
+      account_secret
+    ).toString();
+
     if (user) {
       const newCard = await db.card.create({
         data: {
           cardname: cardname,
           cardholder: cardholder,
-          cvv: cvv,
+          cvv: encryptedCVV,
           expiredate: expiredate,
-          cardnumber: cardnumber,
+          cardnumber: encryptedCardNo,
           userId: user.id,
         },
       });

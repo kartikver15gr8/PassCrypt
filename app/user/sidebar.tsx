@@ -27,7 +27,7 @@ export default function Sidebar() {
   const userEmail = session.data?.user?.email;
 
   return (
-    <div className="bg-slate-200 w-[25%]  ">
+    <div className="bg-slate-300 w-[25%]  ">
       <div className="flex text-black p-5 shadow-md flex-row justify-between">
         <svg
           onClick={() => {

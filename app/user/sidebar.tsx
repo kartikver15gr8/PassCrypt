@@ -69,6 +69,9 @@ export default function Sidebar() {
             className={
               pathname === "/user/allitems" ? ACTIVE_ROUTE : INACTIVE_ROUTE
             }
+            onClick={() => {
+              router.push("/user/allitems");
+            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

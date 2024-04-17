@@ -73,7 +73,7 @@ export default function LoginCard() {
 
   return (
     <div className="grid grid-cols-2  h-[100vh]">
-      <div className="grid bg-[#F5F5F5] p-5 ">
+      <div className="grid bg-slate-200 p-5 ">
         <div className="flex w-[80%] h-[20%]">
           <div className="flex items-center h-12 ml-9 mt-4 hover:scale-110 transition-all duration-200">
             <img
@@ -89,18 +89,18 @@ export default function LoginCard() {
             Welcome to PassCrypt on the web
           </div>
           <p className="text-slate-900 text-sm">
-            Access your logins and personal data in the web app - quiclky and
+            Access your logins and personal data in the web app - quickly and
             securely
           </p>
         </div>
       </div>
 
-      <div className="flex flex-col bg-[#FFFFFF] p-5">
-        <div className="flex items-center justify-end pr-8 mb-[10em]">
+      <div className="flex justify-center flex-col bg-[#FFFFFF] p-5">
+        {/* <div className="flex items-center justify-end pr-8 mb-[10em]">
           <p className="text-black mx-4">New to PassCrypt?</p>
           <Button className="bg-sky-900">Create an account</Button>
-        </div>
-        <div className="flex justify-center  p-5">
+        </div> */}
+        <div className="flex justify-center p-5">
           {invalidInput ? (
             <div className="flex flex-col w-80 border-red-500">
               <h1 className="text-2xl text-red-600 pb-5">
@@ -125,7 +125,7 @@ export default function LoginCard() {
                   }}
                 />
                 <Button
-                  className="bg-sky-900 m-1"
+                  className="bg-red-900 m-1"
                   onClick={togglePasswordVisibility}
                 >
                   view
@@ -163,7 +163,7 @@ export default function LoginCard() {
                   }}
                 />
                 <Button
-                  className="bg-sky-900 m-1"
+                  className="bg-slate-900 m-1"
                   onClick={togglePasswordVisibility}
                 >
                   view
@@ -171,7 +171,7 @@ export default function LoginCard() {
               </div>
 
               <Button
-                className="bg-sky-900 shadow-md shadow-sky-600"
+                className="bg-slate-900 shadow-md shadow-slate-600"
                 onClick={throttledLogin}
                 disabled={isLogging}
               >

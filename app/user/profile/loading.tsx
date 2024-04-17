@@ -18,16 +18,18 @@ export default function Loading() {
         ></div>
       </div>
 
-      <div
-        className="flex animate-pulse flex-col m-2 w-[300px] h-[500px] bg-slate-400 rounded-md"
-        style={{
-          animationDuration: "1s",
-        }}
-      >
-        <div className="text-black p-5 flex flex-col rounded-md m-2 w-full ">
-          <div className="w-[200px] h-[200px] rounded-full flex bg-slate-600 mb-10"></div>
-          <p className="mt-1 text-lg w-36 h-5 font-semibold  rounded-md  bg-slate-500"></p>
-          <p className="mt-1 text-lg w-48 h-5 font-semibold  rounded-md  bg-slate-500"></p>
+      <div className="flex w-full min-h-[80vh] justify-center items-center">
+        <div
+          className="flex animate-pulse flex-col m-2 w-72 h-96 bg-slate-400 rounded-xl"
+          style={{
+            animationDuration: "1s",
+          }}
+        >
+          <div className="text-black p-5 flex flex-col rounded-md m-2 w-full ">
+            <div className="w-[200px] h-[200px] rounded-full flex bg-slate-600 mb-10"></div>
+            <p className="mt-1 text-lg w-36 h-5 font-semibold  rounded-md  bg-slate-500"></p>
+            <p className="mt-1 text-lg w-48 h-5 font-semibold  rounded-md  bg-slate-500"></p>
+          </div>
         </div>
       </div>
     </div>

@@ -4,7 +4,8 @@ import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { signOut } from "next-auth/react";
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 
 export default function Navbar() {
   const session = useSession();
@@ -22,7 +23,12 @@ export default function Navbar() {
         <div className="lg:w-full w-11/12 mx-auto h-full flex justify-between items-center">
           <div className="flex flex-col gap-y-4">
             <div className="flex items-center gap-x-2">
-              <div className="flex items-center ml-4 hover:scale-110 transform-all duration-100">
+              <div
+                onClick={() => {
+                  router.push("/");
+                }}
+                className="flex items-center ml-4 hover:scale-110 transform-all duration-100"
+              >
                 {" "}
                 <img
                   className="w-10 mx-2"
@@ -40,7 +46,12 @@ export default function Navbar() {
             <p className="leading-normal text-black font-bold text-lg hover:cursor-pointer hover:text-slate-600 hover:scale-110 transform-all duration-100">
               Product
             </p>{" "}
-            <p className="leading-normal text-black font-bold text-lg hover:cursor-pointer hover:text-slate-600 hover:scale-110 transform-all duration-100">
+            <p
+              onClick={() => {
+                router.push("/#pricing");
+              }}
+              className="leading-normal text-black font-bold text-lg hover:cursor-pointer hover:text-slate-600 hover:scale-110 transform-all duration-100"
+            >
               Pricing
             </p>{" "}
             {userEmail ? (

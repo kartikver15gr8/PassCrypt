@@ -47,7 +47,7 @@ export default async function Landing() {
         <Feature />
       </Reveal>
       <Reveal>
-        <div className="flex justify-center my-10">
+        <div id="pricing" className="flex justify-center my-10">
           <Pricing />
         </div>
       </Reveal>

@@ -2,7 +2,6 @@ import db from "@/db";
 import { NextRequest } from "next/server";
 import { getServerSession } from "next-auth";
 import CryptoJS from "crypto-js";
-import { CVV_ENCRYPT_SEC, CARD_NO_SEC } from "@/secrets";
 
 export async function POST(req: NextRequest) {
   const session = await getServerSession();

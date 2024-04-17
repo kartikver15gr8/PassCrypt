@@ -64,7 +64,7 @@ export default function Edit({ params }: any) {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  });
 
   return (
     <div className="flex text-black flex-col justify-center items-center p-5 h-100vh mt-16">

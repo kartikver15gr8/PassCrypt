@@ -3,12 +3,13 @@ import Image from "next/image";
 import bg2 from "@/public/bg2.png";
 import bg1 from "@/public/bg1.png";
 import bg3 from "@/public/bg3.png";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 
 export default function ImageBanner() {
   const [bannerImg, setBannerImg] = useState(bg1);
   const [index, setIndex] = useState(0);
-  const images = [bg1, bg2, bg3];
+  // const images = [bg1, bg2, bg3];
+  const images = useMemo(() => [bg1, bg2, bg3], []);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -16,11 +17,11 @@ export default function ImageBanner() {
     }, 5000);
 
     return () => clearInterval(intervalId);
-  }, []);
+  }, [images]);
 
   useEffect(() => {
     setBannerImg(images[index]);
-  }, [index]);
+  }, [index, images]);
   return (
     <div className="relative mb-20 w-[80%]  flex justify-center border-8 border-gray-800 border-solid rounded-xl shadow-xl shadow-slate-600 hover:scale-110 transform-all duration-200">
       <div className="">

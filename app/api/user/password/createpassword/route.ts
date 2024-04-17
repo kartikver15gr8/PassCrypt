@@ -16,7 +16,8 @@ export async function POST(req: NextRequest) {
       where: { email: userEmail },
     });
 
-    const SECRET = PASS_ENCRYPT_SEC || "SeCR3T";
+    // const SECRET = PASS_ENCRYPT_SEC || "SeCR3T";
+    const SECRET = process.env.NEXT_PUBLIC_PASS_ENCRYPT_SEC || "SeCR3T";
 
     const encryptedPass = CryptoJS.AES.encrypt(password, SECRET).toString();
 

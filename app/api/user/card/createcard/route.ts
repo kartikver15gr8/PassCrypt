@@ -17,10 +17,12 @@ export async function POST(req: NextRequest) {
       where: { email: userEmail },
     });
 
-    const cvv_secret = CVV_ENCRYPT_SEC || "S3CrET";
+    // const cvv_secret = CVV_ENCRYPT_SEC || "S3CrET";
+    const cvv_secret = process.env.NEXT_PUBLIC_CVV_ENCRYPT_SEC || "SECRET";
     const encryptedCVV = CryptoJS.AES.encrypt(cvv, cvv_secret).toString();
 
-    const account_secret = CARD_NO_SEC || "SecR3T";
+    // const account_secret = CARD_NO_SEC || "SecR3T";
+    const account_secret = process.env.NEXT_PUBLIC_CARD_NO_SEC || "SECRET";
     const encryptedCardNo = CryptoJS.AES.encrypt(
       cardnumber,
       account_secret

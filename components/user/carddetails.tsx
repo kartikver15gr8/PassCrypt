@@ -3,6 +3,7 @@ import { CARD_NO_SEC, CVV_ENCRYPT_SEC } from "@/secrets";
 import { Button } from "../ui/button";
 import { useEffect, useRef, useState } from "react";
 import CryptoJS from "crypto-js";
+import { useRouter } from "next/navigation";
 
 export function CardDetails({
   id,
@@ -20,6 +21,7 @@ export function CardDetails({
   const cardRef = useRef(null);
   const [copySuccess, setCopySuccess] = useState(false);
   const [cardImg, setCardImg] = useState("");
+  const router = useRouter();
 
   useEffect(() => {
     if (cardname.toLowerCase() == "visa") {
@@ -72,7 +74,8 @@ export function CardDetails({
 
   const decrypt = (cvv: string): string => {
     try {
-      const cvv_secret = CVV_ENCRYPT_SEC || "S3CrET";
+      // const cvv_secret = CVV_ENCRYPT_SEC || "S3CrET";
+      const cvv_secret = process.env.NEXT_PUBLIC_CVV_ENCRYPT_SEC || "SECRET";
       const decryptedBytes = CryptoJS.AES.decrypt(cvv, cvv_secret);
       const decryptedCVV = decryptedBytes.toString(CryptoJS.enc.Utf8);
 
@@ -83,7 +86,8 @@ export function CardDetails({
   };
   const decryptCardNo = (cardnumber: string): string => {
     try {
-      const account_secret = CARD_NO_SEC || "SecR3T";
+      // const account_secret = CARD_NO_SEC || "SecR3T";
+      const account_secret = process.env.NEXT_PUBLIC_CARD_NO_SEC || "SECRET";
       const decryptedBytes = CryptoJS.AES.decrypt(cardnumber, account_secret);
       const decryptedNo = decryptedBytes.toString(CryptoJS.enc.Utf8);
 
@@ -194,21 +198,14 @@ export function CardDetails({
           )}
         </Button>
       </div>
-      {/* <p>{pasword}</p>
-        <p>{note}</p> */}
-      <Button className="transition-all hover:bg-slate-500 duration-500 ml-10">
-        <p className="mr-1">edit</p>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="1em"
-          height="1em"
-          viewBox="0 0 24 24"
-        >
-          <path
-            fill="white"
-            d="M5 19h1.425L16.2 9.225L14.775 7.8L5 17.575zm-2 2v-4.25L16.2 3.575q.3-.275.663-.425t.762-.15t.775.15t.65.45L20.425 5q.3.275.438.65T21 6.4q0 .4-.137.763t-.438.662L7.25 21zM19 6.4L17.6 5zm-3.525 2.125l-.7-.725L16.2 9.225z"
-          />
-        </svg>
+      <Button
+        onClick={() => {
+          console.log(id);
+          router.push(`http://localhost:3000/user/payments/${id}`);
+        }}
+        className="transition-all hover:bg-slate-500 duration-500 ml-10"
+      >
+        <p className="mr-1">view</p>
       </Button>
     </div>
   );

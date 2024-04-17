@@ -1,5 +1,5 @@
 "use client";
-import { CARD_NO_SEC, CVV_ENCRYPT_SEC } from "@/secrets";
+
 import { Button } from "../ui/button";
 import { useEffect, useRef, useState } from "react";
 import CryptoJS from "crypto-js";

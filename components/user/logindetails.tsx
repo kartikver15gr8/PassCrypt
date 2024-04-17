@@ -2,7 +2,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Button } from "../ui/button";
 import CryptoJS from "crypto-js";
-import { PASS_ENCRYPT_SEC } from "@/secrets";
 
 export function LoginDetails({
   website,

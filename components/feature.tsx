@@ -3,7 +3,7 @@ import FeatureCard from "./featureCard";
 export default function Feature() {
   return (
     <div className="flex justify-center my-10">
-      <div className="flex p-6 justify-center">
+      <div className="flex flex-wrap sm:flex-wrap p-6 justify-center">
         <FeatureCard
           title="Powerful security within minutes"
           description="For those who want to do more, secure more, and collaborate more, Bitwarden is fast and easy to set up for both individuals and businesses."

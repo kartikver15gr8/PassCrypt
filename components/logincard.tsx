@@ -72,7 +72,7 @@ export default function LoginCard() {
   const throttledLogin = throttle(onClickHandler, 2000);
 
   return (
-    <div className="grid grid-cols-2  h-[100vh]">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 h-[100vh]">
       <div className="grid bg-slate-200 p-5 ">
         <div className="flex w-[80%] h-[20%]">
           <div className="flex items-center h-12 ml-9 mt-4 hover:scale-110 transition-all duration-200">
@@ -85,7 +85,7 @@ export default function LoginCard() {
           </div>
         </div>
         <div className="flex flex-col h-[40%] w-[60%] ml-9">
-          <div className="text-6xl text-slate-700 mb-7">
+          <div className="text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-slate-700 mb-7 ">
             Welcome to PassCrypt on the web
           </div>
           <p className="text-slate-900 text-sm">

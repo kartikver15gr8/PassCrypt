@@ -12,12 +12,18 @@ export default function FeatureCard({
   description: string;
 }) {
   return (
-    <div className="border w-80 h-[450px] rounded-lg shadow-md mx-4 hover:scale-110  hover:shadow-xl transition-transform duration-300">
-      <p className="m-1 p-2">{topText}</p>
+    <div className="border xl:w-80 lg:w-72  md:w-64 w-80 lg:h-[450px] md:h-[380px] xl:h-[500px] h-[500px] rounded-lg shadow-md mx-4 md:mx-2 lg:mx-2 sm:my-2 my-2 hover:scale-110  hover:shadow-xl transition-transform duration-300">
+      <p className="m-1 p-2 sm:mb-3 xl:text-xl lg:text-lg md:text-sm">
+        {topText}
+      </p>
       <div className="flex flex-col items-center">
-        <div className="w-48">{svg}</div>
-        <h1 className="text-xl font-bold px-4 p-1">{title}</h1>
-        <p className="text-md px-4 p-1 mt-1">{description}</p>
+        <div className="w-48 lg:w-48 md:w-32 md:mb-4">{svg}</div>
+        <h1 className="text-xl font-bold px-4 p-1 xl:text-xl lg:text-lg md:text-base">
+          {title}
+        </h1>
+        <p className="text-md px-4 p-1 mt-1 xl:text-lg lg:text-md md:text-sm">
+          {description}
+        </p>
       </div>
     </div>
   );

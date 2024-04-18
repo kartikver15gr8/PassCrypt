@@ -27,7 +27,7 @@ export default function Navbar() {
                 onClick={() => {
                   router.push("/");
                 }}
-                className="flex items-center ml-4 hover:scale-110 transform-all duration-100"
+                className="flex items-center ml-1 md:ml-2 lg:ml-3 xl:ml-4  sm:ml-1 hover:scale-110 transform-all duration-100"
               >
                 {" "}
                 <img
@@ -148,72 +148,75 @@ export default function Navbar() {
           )}
         </div>
         {dropdown ? (
-          <div
-            onClick={showDropdown}
-            className="lg:hidden rounded-xl w-96 h-[400px] fixed top-24 ease-in-out duration-100 transition-all  backdrop-blur-lg bg-[rgba(0,0,0,0.2)]"
-          >
-            <div className="w-full h-[320px] flex flex-col items-baseline pt-8 gap-4">
-              <div className="text-center p-0 flex flex-col justify-center w-full gap-y-6">
-                {" "}
-                <p className="leading-normal text-black font-bold text-xl hover:cursor-pointer hover:text-blue-500">
-                  Product
-                </p>{" "}
-                <p className="leading-normal text-black font-bold text-xl hover:cursor-pointer hover:text-blue-500">
-                  Pricing
-                </p>{" "}
-                {userEmail ? (
-                  <p
-                    className="leading-normal text-black font-bold text-xl hover:cursor-pointer hover:text-blue-500"
-                    onClick={() => {
-                      router.push("/user/passwords");
-                    }}
-                  >
-                    Passwords
-                  </p>
-                ) : (
-                  <p className="leading-normal text-black font-bold text-xl hover:cursor-pointer hover:text-blue-500">
-                    Resources
-                  </p>
-                )}
-                {userEmail ? (
-                  <p
-                    className="leading-normal text-black font-bold text-xl hover:cursor-pointer hover:text-blue-500"
-                    onClick={() => {
-                      router.push("/user/profile");
-                    }}
-                  >
-                    Profile
-                  </p>
-                ) : (
-                  <p className="leading-normal text-black font-bold text-xl hover:cursor-pointer hover:text-blue-500">
-                    Blog
-                  </p>
-                )}
-              </div>
-              <div className="flex flex-col justify-center items-center w-full gap-y-8 mt-4">
-                {userEmail ? (
-                  <div className="flex flex-col items-center mr-4 text-emerald-900 font-semibold font-mono">
-                    <p className="mb-4">{userEmail}</p>
-                    <Button
+          <div className="flex justify-center">
+            <div
+              onClick={showDropdown}
+              className="lg:hidden shadow-inner shadow-slate-400 rounded-xl w-96 h-[400px] fixed top-24 ease-in-out duration-100 transition-all  backdrop-blur-lg bg-slate-300"
+            >
+              <div className="w-full h-[320px] flex flex-col items-baseline pt-8 gap-4">
+                <div className="text-center p-0 flex flex-col justify-center w-full gap-y-6">
+                  {" "}
+                  <p className="leading-normal text-black font-bold text-xl hover:cursor-pointer hover:text-blue-500 hover:scale-110 transition-all duration-200">
+                    Product
+                  </p>{" "}
+                  <p className="leading-normal text-black font-bold text-xl hover:cursor-pointer hover:text-blue-500 hover:scale-110 transition-all duration-200">
+                    Pricing
+                  </p>{" "}
+                  {userEmail ? (
+                    <p
+                      className="leading-normal text-black font-bold text-xl hover:cursor-pointer hover:text-blue-500 hover:scale-110 transition-all duration-200"
                       onClick={() => {
-                        signOut();
+                        router.push("/user/passwords");
                       }}
                     >
-                      Logout
-                    </Button>
-                  </div>
-                ) : (
-                  <div className="flex items-center">
-                    <Button
-                      className="bg-sky-700 m-2"
+                      Passwords
+                    </p>
+                  ) : (
+                    <p className="leading-normal text-black font-bold text-xl hover:cursor-pointer hover:text-blue-500 hover:scale-110 transition-all duration-200">
+                      Resources
+                    </p>
+                  )}
+                  {userEmail ? (
+                    <p
+                      className="leading-normal text-black font-bold text-xl hover:cursor-pointer hover:text-blue-500 hover:scale-110 transition-all duration-200"
                       onClick={() => {
-                        router.push("/login");
+                        router.push("/user/profile");
                       }}
                     >
-                      Log in
-                    </Button>
-                  </div>
-                )}
+                      Profile
+                    </p>
+                  ) : (
+                    <p className="leading-normal text-black font-bold text-xl hover:cursor-pointer hover:text-blue-500 hover:scale-110 transition-all duration-200">
+                      Blog
+                    </p>
+                  )}
+                </div>
+                <div className="flex flex-col justify-center items-center w-full gap-y-8 mt-4">
+                  {userEmail ? (
+                    <div className="flex flex-col items-center mr-4 text-emerald-900 font-semibold font-mono">
+                      <p className="mb-4">{userEmail}</p>
+                      <Button
+                        className="hover:scale-110 transition-all duration-200"
+                        onClick={() => {
+                          signOut();
+                        }}
+                      >
+                        Logout
+                      </Button>
+                    </div>
+                  ) : (
+                    <div className="flex items-center">
+                      <Button
+                        className="bg-sky-700 m-2 hover:scale-110 transition-all duration-200"
+                        onClick={() => {
+                          router.push("/login");
+                        }}
+                      >
+                        Log in
+                      </Button>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>

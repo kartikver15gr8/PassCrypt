@@ -17,21 +17,43 @@ export default function Add() {
   const session = useSession();
   const router = useRouter();
 
+  // const handleOnClick = async () => {
+  //   try {
+  //     setIsAdding(true);
+  //     const res = await axios.post(
+  //       "http://localhost:3000/api/user/password/createpassword",
+  //       {
+  //         website: website,
+  //         username: username,
+  //         password: password,
+  //         note: note,
+  //       }
+  //     );
+
+  //     router.push("/user/passwords");
+
+  //     return res.data;
+  //   } finally {
+  //     setIsAdding(false);
+  //   }
+  // };
+
   const handleOnClick = async () => {
     try {
       setIsAdding(true);
-      const res = await axios.post(
-        "http://localhost:3000/api/user/password/createpassword",
-        {
-          website: website,
-          username: username,
-          password: password,
-          note: note,
-        }
-      );
+      const apiUrl =
+        process.env.NODE_ENV === "development"
+          ? "http://localhost:3000/api/user/password/createpassword"
+          : "https://pass-crypt.vercel.app/api/user/password/createpassword";
+
+      const res = await axios.post(apiUrl, {
+        website: website,
+        username: username,
+        password: password,
+        note: note,
+      });
 
       router.push("/user/passwords");
-
       return res.data;
     } finally {
       setIsAdding(false);

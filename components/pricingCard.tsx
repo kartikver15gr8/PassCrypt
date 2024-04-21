@@ -39,11 +39,11 @@ export default function PricingCard() {
           </p>
           <p className="font-bold sm:text-sm">Billed Annually</p>
           <div className="flex flex-col my-10 sm:my-3 sm:text-sm sm:flex-row sm:justify-center">
-            <Button className="my-1 h-14 flex sm:w-24 sm:mx-1 sm:text-[12px]">
+            <Button className="my-1 h-14 flex sm:w-[50%] sm:mx-1 sm:text-[12px]">
               Purchase now
             </Button>
 
-            <Button className="my-1 h-14 flex sm:w-24 sm:mx-1 bg-slate-600 sm:text-[12px]">
+            <Button className="my-1 h-14 flex sm:w-[50%] sm:mx-1 bg-slate-600 sm:text-[12px]">
               Free 7 day trial
             </Button>
           </div>

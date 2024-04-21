@@ -201,7 +201,12 @@ export function CardDetails({
       <Button
         onClick={() => {
           console.log(id);
-          router.push(`http://localhost:3000/user/payments/${id}`);
+          // router.push(`https://pass-crypt.vercel.app/user/payments/${id}`);
+          router.push(
+            process.env.NODE_ENV === "development"
+              ? `http://localhost:3000/user/payments/${id}`
+              : `https://pass-crypt.vercel.app/user/payments/${id}`
+          );
         }}
         className="transition-all hover:bg-slate-500 duration-500 ml-10"
       >

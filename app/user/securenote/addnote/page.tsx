@@ -15,16 +15,36 @@ export default function AddCard() {
   const session = useSession();
   const router = useRouter();
 
+  // const handleOnClick = async () => {
+  //   try {
+  //     setIsAdding(true);
+  //     const res = await axios.post(
+  //       "http://localhost:3000/api/user/notes/createnotes",
+  //       {
+  //         title: title,
+  //         description: description,
+  //       }
+  //     );
+
+  //     router.push("/user/securenote");
+
+  //     return res.data;
+  //   } finally {
+  //     setIsAdding(false);
+  //   }
+  // };
+
   const handleOnClick = async () => {
     try {
       setIsAdding(true);
-      const res = await axios.post(
-        "http://localhost:3000/api/user/notes/createnotes",
-        {
-          title: title,
-          description: description,
-        }
-      );
+      const apiUrl =
+        process.env.NODE_ENV === "development"
+          ? "http://localhost:3000/api/user/notes/createnotes"
+          : "https://pass-crypt.vercel.app/api/user/notes/createnotes";
+      const res = await axios.post(apiUrl, {
+        title: title,
+        description: description,
+      });
 
       router.push("/user/securenote");
 

@@ -29,9 +29,9 @@ export default async function Favorites() {
         <Button className="mr-4">Logout</Button>
       </div>
       <div className="text-xl font-bold p-4">Favorites</div>
-      {favorites.map((e) => {
+      {favorites.map((e, key) => {
         return (
-          <div className="text-black">
+          <div key={key} className="text-black">
             <LoginDetails
               website={e.website}
               username={e.username}

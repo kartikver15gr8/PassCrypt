@@ -23,7 +23,11 @@ export default function Identity() {
           Logout
         </Button>
       </div>
-      <div>Identities</div>
+      <div className="w-full h-[90vh] flex justify-center items-center">
+        <div className="flex flex-col items-center">
+          <p className="text-5xl font-bold">This page is under development!</p>
+        </div>
+      </div>
     </div>
   );
 }

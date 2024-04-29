@@ -12,7 +12,7 @@ export default async function Favorites() {
   let favNotes = await FavNotes();
 
   return (
-    <div>
+    <div className="text-black">
       <div className="flex p-2 items-center h-16 shadow-md flex-row justify-between">
         <svg
           className="ml-4"
@@ -28,7 +28,7 @@ export default async function Favorites() {
         </svg>
         <Button className="mr-4">Logout</Button>
       </div>
-      <div>Favorites</div>
+      <div className="text-xl font-bold p-4">Favorites</div>
       {favorites.map((e) => {
         return (
           <div className="text-black">
@@ -41,7 +41,7 @@ export default async function Favorites() {
           </div>
         );
       })}
-      <div>Cards</div>
+      <div className="text-xl font-bold p-4">Cards</div>
       {favCards.map((elem, key) => {
         return (
           <div key={key}>
@@ -55,7 +55,7 @@ export default async function Favorites() {
           </div>
         );
       })}
-      <div>Secure Notes</div>
+      <div className="text-xl font-bold p-4">Secure Notes</div>
       {favNotes.map((elem, key) => {
         return (
           <div key={key}>

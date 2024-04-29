@@ -12,4 +12,4 @@ So to fix this problem, I thought why not to just build an application that will
 #### PassCrypt is a safe place where you can store your private informations seamlessly also its secure as we hash your details with best hashing algorithms out there, so even we don't know what your passwords are...
 
 
-## [Checkout the app](https://pass-crypt.vercel.ap) 👈
+## [Checkout the app](https://pass-crypt.vercel.app) 👈

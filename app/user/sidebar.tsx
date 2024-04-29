@@ -90,6 +90,9 @@ export default function Sidebar() {
             className={
               pathname === "/user/favorites" ? ACTIVE_ROUTE : INACTIVE_ROUTE
             }
+            onClick={() => {
+              router.push("/user/favorites");
+            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -14,43 +14,47 @@ datasource db {
 }
 
 model User {
-  id Int @id @default(autoincrement())
-  name String?
+  id           Int        @id @default(autoincrement())
+  name         String?
   profileimage String?
-  email String @unique
-  password String
-  login Password[]
-  card Card[]
-  note Note[]
+  email        String     @unique
+  password     String
+  login        Password[]
+  card         Card[]
+  note         Note[]
 }
 
 model Password {
-  id Int @id @default(autoincrement())
-  website String
-  username String
-  password String 
-  note String?
-  user User @relation(fields: [userId], references: [id])
-  userId Int 
+  id        Int     @id @default(autoincrement())
+  website   String
+  username  String
+  password  String
+  note      String?
+  user      User    @relation(fields: [userId], references: [id])
+  userId    Int
+  favorites Boolean @default(false)
+  bin       Boolean @default(false)
 }
 
 model Card {
-  id Int @id @default(autoincrement())
+  id         Int     @id @default(autoincrement())
   cardholder String
-  cardname String
-  cardnumber String @unique
-  cvv String @unique
+  cardname   String
+  cardnumber String  @unique
+  cvv        String  @unique
   expiredate String
-  user User @relation(fields: [userId], references: [id])
-  userId Int 
+  user       User    @relation(fields: [userId], references: [id])
+  userId     Int
+  favorites  Boolean @default(false)
+  bin        Boolean @default(false)
 }
 
 model Note {
-  id Int @id @default(autoincrement())
-  title String @unique
+  id          Int     @id @default(autoincrement())
+  title       String  @unique
   description String
-  user User @relation(fields: [userId], references: [id])
-  userId Int
+  user        User    @relation(fields: [userId], references: [id])
+  userId      Int
+  favorites   Boolean @default(false)
+  bin         Boolean @default(false)
 }
-
-

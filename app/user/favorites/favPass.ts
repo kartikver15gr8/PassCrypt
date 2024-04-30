@@ -18,6 +18,7 @@ export async function FavPass() {
       const passwords = await db.password.findMany({
         where: {
           favorites: true,
+          userId: user.id,
         },
       });
 

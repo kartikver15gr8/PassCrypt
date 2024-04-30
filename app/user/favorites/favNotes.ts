@@ -18,6 +18,7 @@ export async function FavNotes() {
       const notes = await db.note.findMany({
         where: {
           favorites: true,
+          userId: user.id,
         },
       });
 

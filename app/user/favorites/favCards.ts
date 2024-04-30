@@ -18,6 +18,7 @@ export async function FavCards() {
       const cards = await db.card.findMany({
         where: {
           favorites: true,
+          userId: user.id,
         },
       });
 

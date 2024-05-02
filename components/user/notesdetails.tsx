@@ -17,7 +17,7 @@ export function NoteDetails({
       const apiUrl =
         process.env.NODE_ENV === "development"
           ? "http://localhost:3000/api/user/notes/addtofav"
-          : "https://pass-crypt.vercel.app/api/user/notes/addtofav";
+          : "https://www.passcrypt.pro/api/user/notes/addtofav";
       const res = await axios.post(apiUrl, { noteId: id });
       return res.data;
     } catch (error) {

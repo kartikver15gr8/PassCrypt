@@ -106,7 +106,7 @@ export function LoginDetails({
       const apiUrl =
         process.env.NODE_ENV === "development"
           ? "http://localhost:3000/api/user/password/addtofav"
-          : "https://pass-crypt.vercel.app/api/user/password/addtofav";
+          : "https://www.passcrypt.pro/api/user/password/addtofav";
       const res = await axios.post(apiUrl, { passwordId: id });
       return res.data;
     } catch (error) {

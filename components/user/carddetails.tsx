@@ -103,7 +103,7 @@ export function CardDetails({
       const apiUrl =
         process.env.NODE_ENV === "development"
           ? "http://localhost:3000/api/user/card/addtofav"
-          : "https://pass-crypt.vercel.app/api/user/card/addtofav";
+          : "https://www.passcrypt.pro/api/user/card/addtofav";
       const res = await axios.post(apiUrl, { cardId: id });
       return res.data;
     } catch (error) {
@@ -219,7 +219,7 @@ export function CardDetails({
           router.push(
             process.env.NODE_ENV === "development"
               ? `http://localhost:3000/user/payments/${id}`
-              : `https://pass-crypt.vercel.app/user/payments/${id}`
+              : `https://www.passcrypt.pro/user/payments/${id}`
           );
         }}
         className="transition-all hover:bg-slate-500 duration-500 ml-10"

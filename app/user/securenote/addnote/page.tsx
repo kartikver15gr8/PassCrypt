@@ -40,7 +40,7 @@ export default function AddCard() {
       const apiUrl =
         process.env.NODE_ENV === "development"
           ? "http://localhost:3000/api/user/notes/createnotes"
-          : "https://pass-crypt.vercel.app/api/user/notes/createnotes";
+          : "https://www.passcrypt.pro/api/user/notes/createnotes";
       const res = await axios.post(apiUrl, {
         title: title,
         description: description,

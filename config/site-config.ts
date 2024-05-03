@@ -1,9 +1,12 @@
 import { Metadata } from "next";
+import opengraphPasscrypt from "@/public/opengraphPasscrypt.png";
 
 const TITLE = "Passcrypt - Secure Password Manager and Digital Vault";
-const DESCRIPTION = "A more humane password manager to serve more";
+const DESCRIPTION =
+  "A more humane password manager to store your password and other secret credentials seamlessley in a secure way.";
 
-const PREVIEW_IMAGE_URL = "https://ibb.co/GFmgFZT";
+const PREVIEW_IMAGE_URL =
+  "https://raw.githubusercontent.com/kartikver15gr8/COHORT1_PRACTICE/main/opengraph%20for%20passcrypt.png?token=GHSAT0AAAAAACPAKJ35IPZEBMFWDVIJ276YZRVF53A";
 const ALT_TITLE = "A more humane password manager to serve more";
 const BASE_URL = "https://www.passcrypt.pro";
 

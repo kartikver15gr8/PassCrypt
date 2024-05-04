@@ -42,14 +42,9 @@ export default function Sidebar() {
         height="1.5em"
         viewBox="0 0 48 48"
       >
-        <g
-          fill="none"
-          stroke="#0d3e63"
-          stroke-linejoin="round"
-          stroke-width="2"
-        >
+        <g fill="none" stroke="#0d3e63" strokeLinejoin="round" strokeWidth="2">
           <path d="M24 44c11.046 0 20-8.954 20-20S35.046 4 24 4S4 12.954 4 24s8.954 20 20 20Z" />
-          <path stroke-linecap="round" d="m27 33l-9-9l9-9" />
+          <path strokeLinecap="round" d="m27 33l-9-9l9-9" />
         </g>
       </svg>
       <div className="flex text-black p-5 shadow-md flex-row items-center">

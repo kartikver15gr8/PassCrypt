@@ -120,11 +120,15 @@ export function CardDetails({
         }}
       ></div>
       <div id={id.toString()} className="m-1 w-[150px]">
-        <p className="text-lg hover:text-sky-800 font-semibold">{cardname}</p>
+        <p className="sm:text-sm text-sm md:text-lg lg:text-lg xl:text-lg 2xl:text-lg hover:text-sky-800 font-semibold">
+          {cardname}
+        </p>
         {showCreds ? (
-          <p className="text-sm">{decryptCardNo(cardnumber)}</p>
+          <p className="sm:text-sm text-sm md:text-lg lg:text-lg xl:text-lg 2xl:text-lg">
+            {decryptCardNo(cardnumber)}
+          </p>
         ) : (
-          <p className="text-sm">
+          <p className="sm:text-sm text-sm md:text-lg lg:text-lg xl:text-lg 2xl:text-lg">
             ********
             {decryptCardNo(cardnumber).substring(
               decryptCardNo(cardnumber).length - 4
@@ -134,11 +138,17 @@ export function CardDetails({
       </div>
       <div className="ml-5 flex items-center w-[250px] justify-end">
         {showCreds ? (
-          <p ref={cardRef} className="p-2 mr-5">
+          <p
+            ref={cardRef}
+            className="p-2 mr-5 sm:text-sm text-sm md:text-lg lg:text-lg xl:text-lg 2xl:text-lg"
+          >
             {decrypt(cvv)}
           </p>
         ) : (
-          <p ref={cardRef} className="p-2 mr-5">
+          <p
+            ref={cardRef}
+            className="p-2 mr-5 sm:text-sm text-sm md:text-lg lg:text-lg xl:text-lg 2xl:text-lg"
+          >
             ***
           </p>
         )}

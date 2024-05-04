@@ -27,8 +27,12 @@ export function NoteDetails({
   return (
     <div className="flex m-2 p-2 border bg-white shadow-md rounded-lg items-center hover:bg-slate-300 transition-all duration-500">
       <div className="flex flex-col w-[500px]">
-        <p className="text-xl font-bold">{title}</p>
-        <p>{description}</p>
+        <p className="sm:text-sm text-sm md:text-lg lg:text-lg xl:text-lg 2xl:text-lg font-bold">
+          {title}
+        </p>
+        <p className="sm:text-sm text-sm md:text-lg lg:text-lg xl:text-lg 2xl:text-lg">
+          {description}
+        </p>
       </div>
       <Button className="transition-all hover:bg-slate-500 duration-500 ml-10">
         <p className="mr-1">edit</p>

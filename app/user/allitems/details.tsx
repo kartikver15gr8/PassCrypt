@@ -35,7 +35,7 @@ export default async function Details() {
   let notesLength = userData[2];
 
   return (
-    <div className="text-black flex p-4 justify-center items-center min-h-[80vh]">
+    <div className="text-black flex p-4 flex-wrap justify-center items-center min-h-[80vh]">
       <div className="w-64 h-96 flex-col border m-4 rounded-xl items-center flex p-4 shadow-lg  hover:bg-slate-300 transition-all duration-300 hover:shadow-2xl bg-white hover:scale-110">
         <p className="text-2xl font-bold bg-gradient-to-r from-slate-700 via-slate-500 to-slate-400 text-transparent inline-block bg-clip-text">
           Passwords

@@ -8,10 +8,10 @@ import { redirect } from "next/navigation";
 
 import { useRecoilValue } from "recoil";
 import { userState } from "@/store/atom/userState";
-import { useEffect } from "react";
+import { useState } from "react";
 
 const ACTIVE_ROUTE =
-  "p-2 h-12 items-center m-1 flex text-xl bg-slate-900 rounded-md text-white shadow-xl";
+  "p-2 h-12 items-center m-1 flex text-xl bg-slate-900 rounded-md text-white shadow-xl ";
 const INACTIVE_ROUTE =
   "p-2 h-12 items-center m-1 flex text-xl rounded-md hover:bg-slate-900 hover:text-white transition-all duration-300";
 const ACTIVE =
@@ -23,13 +23,38 @@ export default function Sidebar() {
   const router = useRouter();
   const session = useSession();
   const pathname = usePathname();
+  const [open, setOpen] = useState(true);
 
   const userEmail = session.data?.user?.email;
 
   return (
-    <div className="bg-slate-300 w-[25%]  ">
-      <div className="flex text-black p-5 shadow-md flex-row justify-between">
+    <div
+      className={` ${
+        open ? "w-[30%]" : "w-20 "
+      } bg-slate-300 relative duration-300`}
+    >
+      <svg
+        className={`absolute cursor-pointer -right-3 top-14 w-fit border-slate-700 bg-blue-300
+        border-2 rounded-full  ${!open && "rotate-180"}`}
+        onClick={() => setOpen(!open)}
+        xmlns="http://www.w3.org/2000/svg"
+        width="1.5em"
+        height="1.5em"
+        viewBox="0 0 48 48"
+      >
+        <g
+          fill="none"
+          stroke="#0d3e63"
+          stroke-linejoin="round"
+          stroke-width="2"
+        >
+          <path d="M24 44c11.046 0 20-8.954 20-20S35.046 4 24 4S4 12.954 4 24s8.954 20 20 20Z" />
+          <path stroke-linecap="round" d="m27 33l-9-9l9-9" />
+        </g>
+      </svg>
+      <div className="flex text-black p-5 shadow-md flex-row items-center">
         <svg
+          className={`cursor-pointer duration-500 ${open && "rotate-[360deg]"}`}
           onClick={() => {
             router.push("/user/profile");
           }}
@@ -43,28 +68,19 @@ export default function Sidebar() {
             d="M1280 1271q0 109-62.5 187t-150.5 78H213q-88 0-150.5-78T0 1271q0-85 8.5-160.5t31.5-152t58.5-131t94-89T327 704q131 128 313 128t313-128q76 0 134.5 34.5t94 89t58.5 131t31.5 152t8.5 160.5m-256-887q0 159-112.5 271.5T640 768T368.5 655.5T256 384t112.5-271.5T640 0t271.5 112.5T1024 384"
           />
         </svg>
-        <p
-          className="mr-2"
-          onClick={() => {
-            router.push("/user");
-          }}
+
+        <h1
+          className={`text-black ml-4 origin-left text-xl duration-200 ${
+            !open && "scale-0"
+          }`}
         >
           {userEmail}
-        </p>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="1.5em"
-          height="1.5em"
-          viewBox="0 0 24 24"
-        >
-          <path
-            fill="currentColor"
-            d="m19.6 21l-6.3-6.3q-.75.6-1.725.95T9.5 16q-2.725 0-4.612-1.888T3 9.5q0-2.725 1.888-4.612T9.5 3q2.725 0 4.613 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l6.3 6.3zM9.5 14q1.875 0 3.188-1.312T14 9.5q0-1.875-1.312-3.187T9.5 5Q7.625 5 6.313 6.313T5 9.5q0 1.875 1.313 3.188T9.5 14"
-          />
-        </svg>
+        </h1>
       </div>
-      <div className="flex p-2 text-black flex-col ">
-        <ul>
+      <div
+        className={`flex  text-black flex-col  rounded-md p-2 cursor-pointer hover:bg-light-white text-sm gap-x-4`}
+      >
+        <ul className="">
           <li
             className={
               pathname === "/user/allitems" ? ACTIVE_ROUTE : INACTIVE_ROUTE
@@ -74,6 +90,7 @@ export default function Sidebar() {
             }}
           >
             <svg
+              className="mr-2"
               xmlns="http://www.w3.org/2000/svg"
               width="1.5em"
               height="1.5em"
@@ -84,7 +101,9 @@ export default function Sidebar() {
                 d="M5 3h13a3 3 0 0 1 3 3v13a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3m0 1a2 2 0 0 0-2 2v3h5V4zM3 19a2 2 0 0 0 2 2h3v-5H3zm5-9H3v5h5zm10 11a2 2 0 0 0 2-2v-3h-5v5zm2-11h-5v5h5zm0-4a2 2 0 0 0-2-2h-3v5h5zM9 4v5h5V4zm0 17h5v-5H9zm5-11H9v5h5z"
               />
             </svg>
-            <p className="ml-2">All items</p>
+            <p className={`${!open && "hidden"} origin-left duration-200`}>
+              All items
+            </p>
           </li>
           <li
             className={
@@ -95,6 +114,7 @@ export default function Sidebar() {
             }}
           >
             <svg
+              className="mr-2"
               xmlns="http://www.w3.org/2000/svg"
               width="1.5em"
               height="1.5em"
@@ -109,12 +129,15 @@ export default function Sidebar() {
                 d="m12 17.75l-6.172 3.245l1.179-6.873l-5-4.867l6.9-1l3.086-6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"
               />
             </svg>
-            <p className="ml-2">Favorities</p>
+            <p className={`${!open && "hidden"} origin-left duration-200`}>
+              Favorities
+            </p>
           </li>
           <li
             className={pathname === "/user/bin" ? ACTIVE_ROUTE : INACTIVE_ROUTE}
           >
             <svg
+              className="mr-2"
               xmlns="http://www.w3.org/2000/svg"
               width="1.5em"
               height="1.5em"
@@ -125,11 +148,15 @@ export default function Sidebar() {
                 <path d="M3 5c2.571 2.667 15.429 2.667 18 0" />
               </g>
             </svg>
-            <p className="ml-2">Bin</p>
+            <p className={`${!open && "hidden"} origin-left duration-200`}>
+              Bin
+            </p>
           </li>
         </ul>
       </div>
-      <div className="flex p-2 text-black flex-col">
+      <div
+        className={`flex-col rounded-md p-2 cursor-pointer hover:bg-light-white text-black text-sm items-center gap-x-4 `}
+      >
         <ul className=" w-[100%]">
           <li
             className={pathname === "/user/passwords" ? ACTIVE : INACTIVE}
@@ -151,7 +178,9 @@ export default function Sidebar() {
                 />
               </svg>
             </div>{" "}
-            <p>Logins</p>
+            <p className={`${!open && "hidden"} origin-left duration-200`}>
+              Logins
+            </p>
           </li>
           <li
             className={pathname === "/user/payments" ? ACTIVE : INACTIVE}
@@ -176,7 +205,9 @@ export default function Sidebar() {
                 />
               </svg>
             </div>{" "}
-            <p>Payments</p>
+            <p className={`${!open && "hidden"} origin-left duration-200`}>
+              Payments
+            </p>
           </li>
           <li
             className={pathname === "/user/securenote" ? ACTIVE : INACTIVE}
@@ -198,7 +229,9 @@ export default function Sidebar() {
                 />
               </svg>
             </div>{" "}
-            <p>Secure note</p>
+            <p className={`${!open && "hidden"} origin-left duration-200`}>
+              Secure note
+            </p>
           </li>
           <li
             className={pathname === "/user/identity" ? ACTIVE : INACTIVE}
@@ -220,7 +253,9 @@ export default function Sidebar() {
                 />
               </svg>
             </div>{" "}
-            <p>Identity</p>
+            <p className={`${!open && "hidden"} origin-left duration-200`}>
+              Identity
+            </p>
           </li>
         </ul>
       </div>

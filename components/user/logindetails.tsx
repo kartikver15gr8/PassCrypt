@@ -118,14 +118,14 @@ export function LoginDetails({
     <div className="flex m-2 p-2 bg-white shadow-md rounded-lg items-center hover:bg-slate-300 transition-all duration-500">
       {webImg ? (
         <div
-          className={`text-white border w-16 h-10 mr-6 ml-2 bg flex justify-center items-center text-2xl  rounded-md bg-cover bg-center`}
+          className={`text-white border  mr-2 sm:mr-4 md:mr-6 lg:mr-6  xl:mr-6 ml-2 bg flex justify-center items-center text-2xl  rounded-md bg-cover bg-center  w-10 h-10 sm:w-12 md:w-16 `}
           style={{
             backgroundImage: `url(${webImg})`,
           }}
         ></div>
       ) : (
         <div
-          className={`text-white border w-16 h-10 mr-6 ml-2 bg flex justify-center items-center text-2xl  rounded-md bg-cover bg-center`}
+          className={`text-white border w-10 h-10 sm:w-12 md:w-16 mr-2 sm:mr-4 md:mr-6 lg:mr-6  xl:mr-6 ml-2 bg flex justify-center items-center text-2xl  rounded-md bg-cover bg-center`}
           style={{
             backgroundImage: `url(https://imgs.search.brave.com/J2ISWKi_kjMTt725LlMdGU7MhoBV3o-G-eEOZQfrIKw/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTcy/MTY5NTUxL3Bob3Rv/L2tleS10by1zdWNj/ZXNzLmpwZz9zPTYx/Mng2MTImdz0wJms9/MjAmYz04VEFLNl8t/YXpLem5MRUJEVmJL/enBFTy1aTGpRWmZm/S1prdm1mS2NFTXE4/PQ)`,
           }}
@@ -134,21 +134,29 @@ export function LoginDetails({
 
       <div id={id.toString()} className="m-1 w-[300px]">
         <a
-          className="text-lg hover:text-sky-800 font-semibold"
+          className=" hover:text-sky-800 sm:text-sm text-sm md:text-lg lg:text-lg xl:text-lg 2xl:text-lg font-semibold "
           href={website}
           target="_blank"
         >
           {website.split("//")[1]}
         </a>
-        <p className="text-sm">{username}</p>
+        <p className="sm:text-sm text-sm md:text-lg lg:text-lg xl:text-lg 2xl:text-lg">
+          {username}
+        </p>
       </div>
       <div className="ml-5 flex items-center w-[200px] justify-end">
         {showPassword ? (
-          <p ref={passRef} className="p-2 mr-5">
+          <p
+            ref={passRef}
+            className="p-2 mr-5 sm:text-sm text-sm md:text-lg lg:text-lg xl:text-lg 2xl:text-lg"
+          >
             {decrypt(password)}
           </p>
         ) : (
-          <p ref={passRef} className="p-2 mr-5">
+          <p
+            ref={passRef}
+            className="p-2 mr-5 sm:text-sm text-sm md:text-lg lg:text-lg xl:text-lg 2xl:text-lg"
+          >
             ******
           </p>
         )}

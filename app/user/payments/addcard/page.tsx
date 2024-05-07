@@ -18,28 +18,6 @@ export default function AddCard() {
   const session = useSession();
   const router = useRouter();
 
-  // const handleOnClick = async () => {
-  //   try {
-  //     setIsAdding(true);
-  //     const res = await axios.post(
-  //       "http://localhost:3000/api/user/card/createcard",
-  //       {
-  //         cardname: cardname,
-  //         cardholder: cardholder,
-  //         cvv: cvv,
-  //         expiredate: expiredate,
-  //         cardnumber: cardnumber,
-  //       }
-  //     );
-
-  //     router.push("/user/payments");
-
-  //     return res.data;
-  //   } finally {
-  //     setIsAdding(false);
-  //   }
-  // };
-
   const handleOnClick = async () => {
     try {
       setIsAdding(true);

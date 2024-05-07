@@ -51,6 +51,7 @@ export default async function Favorites() {
               cvv={elem.cvv}
               id={elem.id}
               expiredate={elem.expiredate}
+              favorites={elem.favorites}
             />
           </div>
         );

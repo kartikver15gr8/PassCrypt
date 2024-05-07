@@ -33,6 +33,7 @@ export async function GetCards() {
       cvv: "string",
       expiredate: "string",
       userId: 1,
+      favorites: false,
     },
   ];
 }

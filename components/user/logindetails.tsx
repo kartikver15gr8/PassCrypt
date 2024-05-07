@@ -115,7 +115,7 @@ export function LoginDetails({
   };
 
   return (
-    <div className="flex m-2 p-2 bg-white shadow-md rounded-lg items-center hover:bg-slate-300 transition-all duration-500">
+    <div className="flex m-2 p-2  bg-white shadow-md rounded-lg items-center hover:bg-slate-300 transition-all duration-500">
       {webImg ? (
         <div
           className={`text-white border  mr-2 sm:mr-4 md:mr-6 lg:mr-6  xl:mr-6 ml-2 bg flex justify-center items-center text-2xl  rounded-md bg-cover bg-center  w-10 h-10 sm:w-12 md:w-16 `}
@@ -138,13 +138,13 @@ export function LoginDetails({
           href={website}
           target="_blank"
         >
-          {website.split("//")[1]}
+          {website.split("//")[1] || website}
         </a>
         <p className="sm:text-sm text-sm md:text-lg lg:text-lg xl:text-lg 2xl:text-lg">
           {username}
         </p>
       </div>
-      <div className="ml-5 flex items-center w-[200px] justify-end">
+      <div className="ml-5 flex items-center w-[200px] justify-right">
         {showPassword ? (
           <p
             ref={passRef}

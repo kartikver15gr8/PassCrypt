@@ -18,7 +18,7 @@ export default function LoginCard() {
     if (userEmail) {
       console.log("sd");
 
-      redirect("/");
+      redirect("/user/passwords");
     }
   }, [userEmail]);
 
@@ -142,7 +142,10 @@ export default function LoginCard() {
             </div>
           ) : (
             <div className="flex flex-col w-80">
-              <h1 className="text-black text-2xl pb-5">Log in to PassCrypt</h1>
+              <h1 className="text-black text-2xl">Check-in to PassCrypt</h1>
+              <p className="text-black text-sm pb-5">
+                Register or Login using your credentials
+              </p>
 
               <input
                 className="text-black p-3 border rounded shadow-md mb-2"

@@ -33,8 +33,8 @@ export async function FavPass() {
       password: "string",
       note: "null",
       userId: 1,
-      favorites: "boolean",
-      bin: "boolean",
+      favorites: false,
+      bin: false,
     },
   ];
 }

@@ -36,6 +36,7 @@ export const getPassword = async () => {
       note: "string",
       user: {},
       userId: 1,
+      favorites: false,
     },
   ];
 };

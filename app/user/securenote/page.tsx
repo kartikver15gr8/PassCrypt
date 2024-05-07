@@ -26,6 +26,7 @@ export default async function Notes() {
                 title={elem.title}
                 description={elem.description}
                 id={elem.id}
+                favorites={elem.favorites}
               />
             </div>
           );

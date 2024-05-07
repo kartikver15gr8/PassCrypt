@@ -26,6 +26,7 @@ export default async function GetNotes() {
       title: "string",
       description: "string",
       userId: 2,
+      favorites: false,
     },
   ];
 }

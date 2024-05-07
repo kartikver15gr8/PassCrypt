@@ -42,6 +42,7 @@ export default async function Passwords() {
                 username={elem.username}
                 password={elem.password}
                 id={elem.id}
+                favorites={elem.favorites}
               />
             </div>
           );

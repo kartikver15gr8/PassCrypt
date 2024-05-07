@@ -37,6 +37,7 @@ export default async function Favorites() {
               username={e.username}
               password={e.password}
               id={e.id}
+              favorites={e.favorites}
             />
           </div>
         );
@@ -64,6 +65,7 @@ export default async function Favorites() {
               title={elem.title}
               description={elem.description}
               id={elem.id}
+              favorites={elem.favorites}
             />
           </div>
         );

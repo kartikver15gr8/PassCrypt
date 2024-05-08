@@ -29,10 +29,10 @@ export function NoteDetails({
   return (
     <div className="flex m-2 p-2 border bg-white shadow-md rounded-lg items-center hover:bg-slate-300 transition-all duration-500">
       <div className="flex flex-col w-[500px]">
-        <p className="sm:text-sm text-sm md:text-lg lg:text-lg xl:text-lg 2xl:text-lg font-bold">
+        <p className="sm:text-sm xs:text-xs text-sm md:text-lg lg:text-lg xl:text-lg 2xl:text-lg font-bold">
           {title}
         </p>
-        <p className="sm:text-sm text-sm md:text-lg lg:text-lg xl:text-lg 2xl:text-lg">
+        <p className="sm:text-sm xs:text-xs text-sm md:text-lg lg:text-lg xl:text-lg 2xl:text-lg">
           {description}
         </p>
       </div>

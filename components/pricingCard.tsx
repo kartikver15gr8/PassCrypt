@@ -9,7 +9,7 @@ export default function PricingCard() {
       <div className="flex w-[100%] h-full ">
         <div className="w-[100%] border flex-col p-6">
           <h1 className="text-3xl font-bold md:text-2xl sm:text-xl">Free</h1>
-          <p className="mb-10 md:text-md sm:text-sm lg:text-lg sm:mb-2">
+          <p className="mb-10 md:text-md sm:text-sm xs:text-xs lg:text-lg sm:mb-2">
             Individual protection plus VPN
           </p>
           <h1 className="text-4xl font-bold my-4">$0</h1>
@@ -18,7 +18,7 @@ export default function PricingCard() {
           <div className="flex flex-col my-10 sm:my-4">
             <Button className="my-1 h-14">Get started today</Button>
           </div>
-          <ul className="sm:text-sm">
+          <ul className="sm:text-sm xs:text-xs">
             <li className="my-1">Unlimited devices</li>
             <li className="my-1">Unlimited password</li>
             <li className="my-1">Secure sharing</li>

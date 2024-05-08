@@ -3,74 +3,74 @@ export default function Footer() {
     <div className="w-full flex flex-col bg-slate-300 ">
       <div className="flex flex-row justify-center w-[100%]">
         <div className="text-blue-900 p-4 ml-1 md:ml-2 lg:ml-4 xl:ml-4 my-8">
-          <h1 className="text-xl md:text-2xl sm:text-xl lg:text-3xl font-bold mb-4">
+          <h1 className="text-xl md:text-2xl sm:text-xl xs:text-lg lg:text-3xl font-bold mb-4">
             Products
           </h1>
           <ul>
-            <li className="my-2 text-sm sm:text-sm md:text-md lg:text-lg ">
+            <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
               How PassCrypt Works
             </li>
-            <li className="my-2 text-sm sm:text-sm md:text-md lg:text-lg ">
+            <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
               Passkeys and Passwords
             </li>
-            <li className="my-2 text-sm sm:text-sm md:text-md lg:text-lg ">
+            <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
               Encryption
             </li>
-            <li className="my-2 text-sm sm:text-sm md:text-md lg:text-lg ">
+            <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
               Pricing for individuals
             </li>
           </ul>
         </div>
         <div className="text-blue-900 p-4 ml-1 md:ml-2 lg:ml-4 xl:ml-4 my-8">
-          <h1 className="text-xl md:text-2xl sm:text-xl lg:text-3xl font-bold mb-4">
+          <h1 className="text-xl md:text-2xl sm:text-xl xs:text-lg lg:text-3xl font-bold mb-4">
             Company
           </h1>
           <ul>
-            <li className="my-2 text-sm sm:text-sm md:text-md lg:text-lg ">
+            <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
               About
             </li>
-            <li className="my-2 text-sm sm:text-sm md:text-md lg:text-lg ">
+            <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
               Open source
             </li>
-            <li className="my-2 text-sm sm:text-sm md:text-md lg:text-lg ">
+            <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
               Blogs
             </li>
-            <li className="my-2 text-sm sm:text-sm md:text-md lg:text-lg ">
+            <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
               Socials
             </li>
-            <li className="my-2 text-sm sm:text-sm md:text-md lg:text-lg ">
+            <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
               Partners
             </li>
           </ul>
         </div>
         <div className="text-blue-900 p-4 ml-1 md:ml-2 lg:ml-4 xl:ml-4 my-8">
-          <h1 className="text-xl md:text-2xl sm:text-xl lg:text-3xl  font-bold mb-4">
+          <h1 className="text-xl md:text-2xl sm:text-xl  xs:text-lg lg:text-3xl  font-bold mb-4">
             Resources
           </h1>
           <ul>
-            <li className="my-2 text-sm sm:text-sm md:text-md lg:text-lg ">
+            <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
               Subscribe for updates
             </li>
-            <li className="my-2 text-sm sm:text-sm md:text-md lg:text-lg ">
+            <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
               Posts
             </li>
           </ul>
         </div>
         <div className="text-blue-900 p-4 ml-1 md:ml-2 lg:ml-4 xl:ml-4 my-8">
-          <h1 className="text-xl md:text-2xl sm:text-xl lg:text-3xl  font-bold mb-4">
+          <h1 className="text-xl md:text-2xl sm:text-xl xs:text-lg lg:text-3xl  font-bold mb-4">
             Tools & Help
           </h1>
           <ul>
-            <li className="my-2 text-sm sm:text-sm md:text-md lg:text-lg ">
+            <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
               Password Generator
             </li>
-            <li className="my-2 text-sm sm:text-sm md:text-md lg:text-lg ">
+            <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
               Password Strength
             </li>
-            <li className="my-2 text-sm sm:text-sm md:text-md lg:text-lg ">
+            <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
               Help and Docs
             </li>
-            <li className="my-2 text-sm sm:text-sm md:text-md lg:text-lg ">
+            <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
               Contact and support
             </li>
           </ul>
@@ -90,10 +90,10 @@ export default function Footer() {
               d="M256 48a208 208 0 1 1 0 416a208 208 0 1 1 0-416m0 464a256 256 0 1 0 0-512a256 256 0 1 0 0 512m-56.6-199.4c-31.2-31.2-31.2-81.9 0-113.1s81.9-31.2 113.1 0c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9c-50-50-131-50-181 0s-50 131 0 181s131 50 181 0c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0c-31.2 31.2-81.9 31.2-113.1 0z"
             />
           </svg>
-          <p>2024 PassCrypt, Inc</p>
-          <p className="mx-4">Terms</p>
-          <p className="mx-4">Privacy</p>
-          <p className="mx-4">Sitemap</p>
+          <p className=" xs:text-xs sm:text-xs">2024 PassCrypt, Inc</p>
+          <p className="mx-4 xs:text-xs sm:text-xs">Terms</p>
+          <p className="mx-4 xs:text-xs sm:text-xs">Privacy</p>
+          <p className="mx-4 xs:text-xs sm:text-xs">Sitemap</p>
         </div>
         <div className="mx-4 flex hover:cursor-pointer my-8">
           <a

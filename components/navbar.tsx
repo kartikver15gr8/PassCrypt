@@ -63,9 +63,13 @@ export default function Navbar() {
                 Passwords
               </p>
             ) : (
-              <p className="leading-normal text-black font-bold text-lg hover:cursor-pointer hover:text-slate-600 hover:scale-110 transform-all duration-100">
-                Resources
-              </p>
+              <a
+                href="https://www.kartikeyverma.com"
+                target="_blank"
+                className="leading-normal text-black font-bold text-lg hover:cursor-pointer hover:text-slate-600 hover:scale-110 transform-all duration-100"
+              >
+                Contact
+              </a>
             )}
             {userEmail ? (
               <p
@@ -77,9 +81,13 @@ export default function Navbar() {
                 Profile
               </p>
             ) : (
-              <p className="leading-normal text-black font-bold text-lg hover:cursor-pointer hover:text-slate-600 hover:scale-110 transform-all duration-100">
+              <a
+                href="https://kartikeyverma.hashnode.dev"
+                target="_blank"
+                className="leading-normal text-black font-bold text-lg hover:cursor-pointer hover:text-slate-600 hover:scale-110 transform-all duration-100"
+              >
                 Blog
-              </p>
+              </a>
             )}
           </div>
           <div className="flex max-lg:hidden gap-x-4">

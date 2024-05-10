@@ -8,6 +8,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import passlogo from "@/public/passlogo.png";
 import Image from "next/image";
+import { toast } from "sonner";
 
 export default function Navbar() {
   const session = useSession();
@@ -39,10 +40,14 @@ export default function Navbar() {
             </div>
           </div>
           <div className="flex-1 flex justify-center items-center xl:gap-12 gap-x-4 max-lg:hidden">
-            {" "}
-            <p className="leading-normal text-black font-bold text-lg hover:cursor-pointer hover:text-slate-600 hover:scale-110 transform-all duration-100">
+            <p
+              className="leading-normal text-black font-bold text-lg hover:cursor-pointer hover:text-slate-600 hover:scale-110 transform-all duration-100"
+              onClick={() => {
+                toast("You'll soon see this section available!");
+              }}
+            >
               Product
-            </p>{" "}
+            </p>
             <p
               onClick={() => {
                 router.push("/#pricing");
@@ -91,7 +96,9 @@ export default function Navbar() {
           <div className="flex max-lg:hidden gap-x-4">
             {userEmail ? (
               <div className="flex items-center mr-4 text-emerald-900 font-semibold font-mono">
-                <p className="mr-2">{userEmail}</p>
+                <p className="mr-2 text-sky-950 text-sm">
+                  Welcome Back {userEmail.split("@")[0]}!
+                </p>
                 <Button
                   onClick={() => {
                     signOut();
@@ -110,7 +117,13 @@ export default function Navbar() {
                 >
                   Log in
                 </Button>
-                <Button>Try Business for free</Button>
+                <Button
+                  onClick={() => {
+                    toast("Under development!");
+                  }}
+                >
+                  Try Business for free
+                </Button>
               </div>
             )}
           </div>

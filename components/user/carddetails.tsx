@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import CryptoJS from "crypto-js";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import { toast } from "sonner";
 
 export function CardDetails({
   id,
@@ -50,6 +51,7 @@ export function CardDetails({
 
   const toggleCredsVisibility = () => {
     setshowCreds(true);
+    toast("See Your Details!");
     setTimeout(() => {
       setshowCreds(false);
     }, 2000);
@@ -58,6 +60,7 @@ export function CardDetails({
   const handleCopy = () => {
     // Check if the Clipboard API is available
     const decryptedCVV = decrypt(cvv);
+    toast("Copied!");
     if (navigator.clipboard) {
       const divContent = { decryptedCVV };
       navigator.clipboard
@@ -107,6 +110,7 @@ export function CardDetails({
           ? "http://localhost:3000/api/user/card/addtofav"
           : "https://www.passcrypt.pro/api/user/card/addtofav";
       const res = await axios.post(apiUrl, { cardId: id });
+      toast("Added to favorites!");
       return res.data;
     } catch (error) {
       return error;

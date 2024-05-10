@@ -1,5 +1,6 @@
 import { Providers } from "./providers";
 import opengraphPasscrypt from "@/public/opengraphPasscrypt.png";
+import { Toaster } from "@/components/ui/sonner";
 
 import type { Metadata } from "next";
 import { Inter, Roboto, Poppins, Kanit } from "next/font/google";
@@ -25,6 +26,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers>{children}</Providers>
+        <Toaster />
       </body>
     </html>
   );

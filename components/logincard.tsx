@@ -11,6 +11,7 @@ import { throttle } from "./user/throttle";
 import passlogo from "@/public/passlogo.png";
 import Image from "next/image";
 import Link from "next/link";
+import { toast } from "sonner";
 
 export default function LoginCard() {
   const session = useSession();
@@ -19,8 +20,6 @@ export default function LoginCard() {
 
   useEffect(() => {
     if (userEmail) {
-      console.log("sd");
-
       redirect("/user/passwords");
     }
   }, [userEmail]);
@@ -68,7 +67,7 @@ export default function LoginCard() {
     } else if (!isValidInputs.success) {
       setInvalidInput(true);
       setIsLogging(false);
-      return "Invalid input types";
+      return toast("Invalid inputs");
     }
   };
 

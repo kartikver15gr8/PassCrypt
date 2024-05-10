@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "../ui/button";
 import CryptoJS from "crypto-js";
 import axios from "axios";
+import { toast } from "sonner";
 
 export function LoginDetails({
   website,
@@ -65,6 +66,7 @@ export function LoginDetails({
     }
   }, [website]);
   const togglePasswordVisibility = () => {
+    toast("Your password is visible!");
     setShowPassword(true);
     setTimeout(() => {
       setShowPassword(false);
@@ -73,6 +75,7 @@ export function LoginDetails({
 
   const handleCopy = () => {
     // Check if the Clipboard API is available
+    toast("Copied!");
     const decryptPs = decrypt(password);
     if (navigator.clipboard) {
       const divContent = { decryptPs };
@@ -110,6 +113,7 @@ export function LoginDetails({
           ? "http://localhost:3000/api/user/password/addtofav"
           : "https://www.passcrypt.pro/api/user/password/addtofav";
       const res = await axios.post(apiUrl, { passwordId: id });
+      toast("Added to favorites");
       return res.data;
     } catch (error) {
       return error;

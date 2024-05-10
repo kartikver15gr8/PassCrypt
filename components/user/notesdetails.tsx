@@ -2,6 +2,7 @@
 
 import axios from "axios";
 import { Button } from "../ui/button";
+import { toast } from "sonner";
 
 export function NoteDetails({
   id,
@@ -21,6 +22,7 @@ export function NoteDetails({
           ? "http://localhost:3000/api/user/notes/addtofav"
           : "https://www.passcrypt.pro/api/user/notes/addtofav";
       const res = await axios.post(apiUrl, { noteId: id });
+      toast("Added to favorites");
       return res.data;
     } catch (error) {
       return error;

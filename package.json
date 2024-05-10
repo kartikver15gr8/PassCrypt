@@ -29,6 +29,7 @@
     "lucide-react": "^0.363.0",
     "next": "14.1.4",
     "next-auth": "^4.24.7",
+    "next-themes": "^0.3.0",
     "nextjs-toploader": "^1.6.12",
     "nodemailer": "^6.9.13",
     "react": "^18",
@@ -36,6 +37,7 @@
     "react-hot-toast": "^2.4.1",
     "react-loader-spinner": "^6.1.6",
     "recoil": "^0.7.7",
+    "sonner": "^1.4.41",
     "tailwind-merge": "^2.2.2",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.22.4"

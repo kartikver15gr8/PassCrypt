@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "./ui/button";
 
 export default function PricingCard() {
@@ -16,7 +17,9 @@ export default function PricingCard() {
           <p className="font-bold">Per Month</p>
           <p className="font-bold">Billed Annually</p>
           <div className="flex flex-col my-10 sm:my-4">
-            <Button className="my-1 h-14">Get started today</Button>
+            <Link href="/login">
+              <Button className="my-1 h-14 w-full">Get started today</Button>
+            </Link>
           </div>
           <ul className="sm:text-sm xs:text-xs">
             <li className="my-1">Unlimited devices</li>

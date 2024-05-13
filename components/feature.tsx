@@ -6,7 +6,7 @@ export default function Feature() {
       <div className="flex flex-wrap sm:flex-wrap p-6 justify-center">
         <FeatureCard
           title="Powerful security within minutes"
-          description="For those who want to do more, secure more, and collaborate more, Bitwarden is fast and easy to set up for both individuals and businesses."
+          description="For those who want to do more, secure more, and collaborate more, PassCrypt is fast and easy to set up for both individuals and businesses."
           topText="EASY"
           svg={
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56">
@@ -33,7 +33,7 @@ export default function Feature() {
         />
         <FeatureCard
           title="Protect what's important to you."
-          description="Zero knowledge, end-to-end encryption guides the Bitwarden open source approach to trust, accountability, and security."
+          description="Zero knowledge, end-to-end encryption guides the PassCrypt open source approach to trust, accountability, and security."
           topText="SECURE"
           svg={
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">

@@ -23,6 +23,11 @@ export default async function Favorites() {
         <Button className="mr-4">Logout</Button>
       </div>
       <div className="text-xl font-bold p-4">Favorites</div>
+      {favorites.length <= 0 && (
+        <div className="font-bold text-sky-950 flex items-center p-5 text-2xl">
+          0
+        </div>
+      )}
       {favorites.map((e, key) => {
         return (
           <div key={key} className="text-black">
@@ -37,6 +42,11 @@ export default async function Favorites() {
         );
       })}
       <div className="text-xl font-bold p-4">Cards</div>
+      {favCards.length <= 0 && (
+        <div className="font-bold text-sky-950 flex items-center p-5 text-2xl">
+          0
+        </div>
+      )}
       {favCards.map((elem, key) => {
         return (
           <div key={key}>
@@ -52,6 +62,11 @@ export default async function Favorites() {
         );
       })}
       <div className="text-xl font-bold p-4">Secure Notes</div>
+      {favNotes.length <= 0 && (
+        <div className="font-bold text-sky-950 flex items-center p-5 text-2xl">
+          0
+        </div>
+      )}
       {favNotes.map((elem, key) => {
         return (
           <div key={key}>

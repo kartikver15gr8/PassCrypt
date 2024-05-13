@@ -34,6 +34,11 @@ export default async function Passwords() {
     <div className="flex flex-col text-black">
       <AppBar redirectURI="/user/passwords/add" />
       <div>
+        {passwords.length <= 0 && (
+          <div className="font-bold flex justify-center items-center h-[80vh] p-5 text-5xl">
+            Start adding your login info!
+          </div>
+        )}
         {passwords.map((elem, key) => {
           return (
             <div key={key}>

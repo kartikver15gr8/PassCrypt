@@ -19,6 +19,11 @@ export default async function Notes() {
     <div className="text-black flex flex-col">
       <AppBar redirectURI="/user/securenote/addnote" />
       <div>
+        {notes.length <= 0 && (
+          <div className="font-bold flex justify-center items-center h-[80vh] p-5 text-5xl">
+            Start adding your personal notes!
+          </div>
+        )}
         {notes.map((elem, key) => {
           return (
             <div key={key}>

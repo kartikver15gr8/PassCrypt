@@ -26,8 +26,10 @@ export default async function Landing() {
             </span>
           </h1>
           <p className="xl:text-2xl lg:text-xl md:text-lg text-sm w-2/3 text-wrap text-center my-8 mb-32">
-            PassCrypt lets you store your private creds seamlessely. Only you
-            know your passwords and passkeys.
+            {/* PassCrypt lets you store your private creds seamlessely. Only you
+            know your passwords and passkeys. */}
+            A new gen password manager that helps you secure your passwords,
+            card details, Ids, secret notes and other credentials seamlessly.
           </p>
           <ImageBanner />
         </div>

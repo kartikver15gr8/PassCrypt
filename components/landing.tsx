@@ -10,7 +10,7 @@ import BlurFade from "./magicui/blur-fade";
 export default async function Landing() {
   return (
     <div className="flex flex-col justify-center p-4 bg-white text-black pt-24 min-h-screen ">
-      <div className="flex flex-col items-center mt-16 min-h-[60vh] xl:text-8xl lg:text-7xl md:text-6xl text-5xl font-bold text-center">
+      <div className="flex flex-col items-center mt-16 min-h-[20vh] sm:min-h-[30vh] md:min-h-[40vh] lg:min-h-[60vh] xl:text-8xl lg:text-7xl md:text-6xl text-5xl font-bold text-center ">
         <BlurFade delay={0.5}>
           <div className="flex">
             <span className="ml-3">A more</span>
@@ -30,12 +30,14 @@ export default async function Landing() {
           </span>
         </BlurFade>
 
-        <BlurFade delay={1.5} className=" mt-8 mb-24 flex justify-center">
+        <BlurFade delay={1.5} className=" mt-8 mb-24 flex justify-center ">
           <p className="xl:text-2xl lg:text-xl md:text-lg text-sm w-2/3 text-wrap text-center ">
             A new gen password manager that helps you secure your passwords,
             card details, Ids, secret notes and other credentials seamlessly.
           </p>
         </BlurFade>
+      </div>
+      <div className=" flex justify-center w-fit">
         <ImageBanner />
       </div>
 

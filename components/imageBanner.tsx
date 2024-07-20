@@ -23,7 +23,7 @@ export default function ImageBanner() {
     setBannerImg(images[index]);
   }, [index, images]);
   return (
-    <div className="relative mb-20 w-[80%]  flex justify-center border-8 border-gray-800 border-solid rounded-xl shadow-xl shadow-slate-600 hover:scale-110 transform-all duration-200">
+    <div className="relative w-[100%] sm:w-[90%] lg:w-[85%] xl:w-[80%]  flex justify-center border-8 border-gray-800 border-solid rounded-xl shadow-xl shadow-slate-600 hover:scale-105 transform-all duration-200">
       <div className="">
         <Image className="rounded" src={bannerImg} alt="img" />
       </div>

@@ -3,6 +3,7 @@ import { getUserDetails } from "./getprofile";
 import SignoutBtn from "@/components/user/signoutBtn";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
+import Image from "next/image";
 // type UserType = {
 //   id: number;
 //   name: string;
@@ -42,16 +43,20 @@ export default async function Profile() {
       <div className="text-black p-5 flex flex-col border w-full items-center min-h-[80vh] justify-center  ">
         <div className="border text-white bg-white hover:bg-slate-200 h-96 p-4 w-72 flex shadow-xl shadow-slate-400 rounded-xl flex-col items-center hover:scale-110 transition-all duration-200 bg-gradient-to-r from-slate-600 via-slate-400 to-slate-300 text-transparent ">
           {data.profileimage ? (
-            <img
+            <Image
               className="w-[200px] rounded-full flex"
               src={data.profileimage}
               alt="profile"
+              width={500}
+              height={500}
             />
           ) : (
-            <img
+            <Image
               className="w-[200px] rounded-full flex"
               src="https://imgs.search.brave.com/5TAO179mq7HichdWUB1S5QQmmEIU5dVXyK0s3GhtHx8/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2Q2L2Nk/L2YyL2Q2Y2RmMmE1/ZGFhZjk2NDYyMTI3/Y2MzMWZiNjIxODUx/LmpwZw"
               alt="profile"
+              width={500}
+              height={500}
             />
           )}
           <p className="flex text-2xl mt-10 font-bold ">{data.name}</p>

@@ -22,7 +22,7 @@ export default function Navbar() {
 
   return (
     <nav className="w-full h-16 flex flex-col justify-center items-center fixed z-20  backdrop-blur-lg bg-[rgba(0,0,0,0.1)]">
-      <div className="container mx-auto lg:px-6">
+      <div className="w-full lg:px-6">
         <div className="lg:w-full w-11/12 mx-auto h-full flex justify-between items-center">
           <div className="flex flex-col gap-y-4">
             <div className="flex items-center">

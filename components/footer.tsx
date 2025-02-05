@@ -1,80 +1,33 @@
 export default function Footer() {
   return (
     <div className="w-full flex flex-col bg-slate-300 ">
-      <div className="flex flex-row justify-center w-[100%]">
-        <div className="text-blue-900 p-4 ml-1 md:ml-2 lg:ml-4 xl:ml-4 my-8">
-          <h1 className="text-xl md:text-2xl sm:text-xl xs:text-lg lg:text-3xl font-bold mb-4">
-            Products
-          </h1>
-          <ul>
-            <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
-              How PassCrypt Works
-            </li>
-            <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
-              Passkeys and Passwords
-            </li>
-            <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
-              Encryption
-            </li>
-            <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
-              Pricing for individuals
-            </li>
-          </ul>
-        </div>
-        <div className="text-blue-900 p-4 ml-1 md:ml-2 lg:ml-4 xl:ml-4 my-8">
-          <h1 className="text-xl md:text-2xl sm:text-xl xs:text-lg lg:text-3xl font-bold mb-4">
-            Company
-          </h1>
-          <ul>
-            <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
-              About
-            </li>
-            <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
-              Open source
-            </li>
-            <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
-              Blogs
-            </li>
-            <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
-              Socials
-            </li>
-            <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
-              Partners
-            </li>
-          </ul>
-        </div>
-        <div className="text-blue-900 p-4 ml-1 md:ml-2 lg:ml-4 xl:ml-4 my-8">
-          <h1 className="text-xl md:text-2xl sm:text-xl  xs:text-lg lg:text-3xl  font-bold mb-4">
-            Resources
-          </h1>
-          <ul>
-            <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
-              Subscribe for updates
-            </li>
-            <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
-              Posts
-            </li>
-          </ul>
-        </div>
-        <div className="text-blue-900 p-4 ml-1 md:ml-2 lg:ml-4 xl:ml-4 my-8">
-          <h1 className="text-xl md:text-2xl sm:text-xl xs:text-lg lg:text-3xl  font-bold mb-4">
-            Tools & Help
-          </h1>
-          <ul>
-            <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
-              Password Generator
-            </li>
-            <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
-              Password Strength
-            </li>
-            <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
-              Help and Docs
-            </li>
-            <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
-              Contact and support
-            </li>
-          </ul>
-        </div>
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:pt-8 lg:px-10 justify-center w-[100%]">
+        <FooterBlock
+          heading="Products"
+          opt1="How Passcrypt Works"
+          opt2="Passkeys and Passwords"
+          opt3="Encryption"
+          opt4="Pricing for Individuals"
+        />
+        <FooterBlock
+          heading="Company"
+          opt1="About"
+          opt2="Open Source"
+          opt3="Blogs"
+          opt4="Socials"
+          opt5="Sponsers & Partners"
+        />
+        <FooterBlock
+          heading="Resources"
+          opt1="Subscribe for updates"
+          opt2="Posts"
+        />
+        <FooterBlock
+          heading="Tools & Help"
+          opt1="Password Genenration"
+          opt2="Docs"
+          opt3="Support"
+        />
       </div>
       <div className="border w-[100%] text-blue-950 flex flex-col  items-center py-10  ">
         <div className="flex items-center ml-8 hover:cursor-pointer ">
@@ -149,3 +102,47 @@ export default function Footer() {
     </div>
   );
 }
+
+const FooterBlock = ({
+  heading,
+  opt1,
+  opt2,
+  opt3,
+  opt4,
+  opt5,
+  opt6,
+}: {
+  heading: string;
+  opt1: string;
+  opt2?: string;
+  opt3?: string;
+  opt4?: string;
+  opt5?: string;
+  opt6?: string;
+}) => {
+  return (
+    <div className="text-blue-900 p-4">
+      <h1 className="lg:text-xl text-lg font-bold mb-4">{heading}</h1>
+      <ul>
+        <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
+          {opt1}
+        </li>
+        <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
+          {opt2}
+        </li>
+        <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
+          {opt3}
+        </li>
+        <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
+          {opt4}
+        </li>
+        <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
+          {opt5}
+        </li>
+        <li className="my-2 text-sm sm:text-sm xs:text-xs md:text-md lg:text-lg ">
+          {opt6}
+        </li>
+      </ul>
+    </div>
+  );
+};

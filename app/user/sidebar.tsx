@@ -15,13 +15,16 @@ import Link from "next/link";
 import passLogo from "@/public/icons/passlogo.svg";
 import { RAW_ICONS } from "@/lib/icons";
 import SVGIcon from "@/lib/SVGIconsComp";
+import { sidebar_options } from "@/lib/SidebarOptions";
+
+const icons = RAW_ICONS;
+
+const options = sidebar_options;
 
 const ACTIVE_ROUTE =
   "h-14 rounded flex items-center px-4 bg-[#ECECEF] border-[#DBDAD8] border gap-x-2";
 const INACTIVE_ROUTE =
   "h-14 rounded flex items-center px-4 gap-x-2 hover:bg-[#ECECEF] transition-all duration-300";
-
-const icons = RAW_ICONS;
 
 export default function Sidebar() {
   return (
@@ -34,48 +37,17 @@ export default function Sidebar() {
         <p className="font-medium text-xl">PassCrypt</p>
       </Link>
       <div className="grid grid-cols-1 p-[6px] gap-y-[6px]">
-        <OptionLabel
-          routePath="/user/allitems"
-          icon={icons.Stack}
-          optName="All Items"
-          className=""
-        />
-        <OptionLabel
-          routePath="/user/favorites"
-          icon={icons.Favorites}
-          optName="Favorites"
-          className=""
-        />
-        <OptionLabel
-          routePath=""
-          icon={icons.Trash}
-          optName="Bin"
-          className=""
-        />
-        <OptionLabel
-          routePath="/user/passwords"
-          icon={icons.Lock}
-          optName="Logins"
-          className=""
-        />
-        <OptionLabel
-          routePath="/user/payments"
-          icon={icons.Card}
-          optName="Payments"
-          className=""
-        />
-        <OptionLabel
-          routePath="/user/securenote"
-          icon={icons.Folder}
-          optName="Secure Notes"
-          className=""
-        />
-        <OptionLabel
-          routePath=""
-          icon={icons.Identity}
-          optName="Identity"
-          className=""
-        />
+        {options.map((option, key) => {
+          return (
+            <OptionLabel
+              key={key}
+              routePath={option.routePath}
+              icon={option.icon}
+              optName={option.optName}
+              className=""
+            />
+          );
+        })}
       </div>
     </div>
   );

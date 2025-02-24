@@ -23,35 +23,35 @@ export default function ImageBanner() {
     setBannerImg(images[index]);
   }, [index, images]);
   return (
-    <div className="relative w-[100%] sm:w-[90%] lg:w-[85%] xl:w-[80%]  flex justify-center border-4 md:border-8 border-gray-800 border-solid rounded-xl shadow-xl shadow-slate-600 hover:scale-105 transform-all duration-200">
-      <div className="">
-        <Image className="rounded-lg md:rounded-sm" src={bannerImg} alt="img" />
-      </div>
-      <div className="flex absolute bottom-0 rounded-lg justify-center text-center text-white  p-2">
-        <button
-          className="bg-black rounded-full m-1 w-4 h-4 justify-center items-center flex text-black hover:bg-slate-600 hover:text-slate-600 transform-all duration-150"
-          onClick={() => {
-            setBannerImg(bg1);
-          }}
-        >
-          o
-        </button>
-        <button
-          className="bg-black rounded-full m-1 w-4 h-4 justify-center items-center flex text-black hover:bg-slate-600 hover:text-slate-600 transform-all duration-150"
-          onClick={() => {
-            setBannerImg(bg2);
-          }}
-        >
-          o
-        </button>
-        <button
-          className="bg-black rounded-full m-1 w-4 h-4 justify-center items-center flex text-black hover:bg-slate-600 hover:text-slate-600 transform-all duration-150"
-          onClick={() => {
-            setBannerImg(bg3);
-          }}
-        >
-          o
-        </button>
+    <div className="relative border-4 rounded-[16px] md:border-[8px] md:rounded-[20px] border-gray-900 border-opacity-25 flex justify-center w-[100%] sm:w-[90%] lg:w-[85%] xl:w-[80%] shadow-xl shadow-[#8c8c8b] hover:scale-105 transform-all duration-200">
+      <div className=" bg-black flex justify-center border-4 md:border-[8px] border-[#363635] rounded-xl ">
+        <Image className="rounded-lg md:rounded-md" src={bannerImg} alt="img" />
+        <div className="flex absolute bottom-0 rounded-lg justify-center text-center text-white  p-2">
+          <button
+            className="bg-black rounded-full m-1 w-3 h-3 lg:w-4 lg:h-4 justify-center items-center flex text-black hover:bg-slate-600 hover:text-slate-600 transform-all duration-150"
+            onClick={() => {
+              setBannerImg(bg1);
+            }}
+          >
+            o
+          </button>
+          <button
+            className="bg-black rounded-full m-1 w-3 h-3 lg:w-4 lg:h-4 justify-center items-center flex text-black hover:bg-slate-600 hover:text-slate-600 transform-all duration-150"
+            onClick={() => {
+              setBannerImg(bg2);
+            }}
+          >
+            o
+          </button>
+          <button
+            className="bg-black rounded-full m-1 w-3 h-3 lg:w-4 lg:h-4 justify-center items-center flex text-black hover:bg-slate-600 hover:text-slate-600 transform-all duration-150"
+            onClick={() => {
+              setBannerImg(bg3);
+            }}
+          >
+            o
+          </button>
+        </div>
       </div>
     </div>
   );

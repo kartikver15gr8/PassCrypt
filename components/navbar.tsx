@@ -71,7 +71,7 @@ export default function Navbar() {
                 onClick={() => {
                   router.push("/");
                 }}
-                className="flex items-center ml-1 md:ml-2 lg:ml-3 xl:ml-4  sm:ml-1 hover:scale-110 transform-all duration-100"
+                className="flex items-center md:ml-2 lg:ml-3 xl:ml-4  sm:ml-1 hover:scale-110 transform-all duration-100"
               >
                 <Image className="w-10 mx-1" src={passlogo} alt="logo"></Image>
                 <h1 className="font-bold font-sans pl-2  text-2xl text-emerald-950 ">

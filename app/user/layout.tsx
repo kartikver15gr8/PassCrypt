@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Inter, Kanit } from "next/font/google";
+import { Inter, Kanit, Instrument_Serif } from "next/font/google";
 import Sidebar from "./sidebar";
 
 const inter = Inter({ subsets: ["latin"] });
 const kanit = Kanit({ subsets: ["latin"], weight: "400" });
+const instrumentSerif = Instrument_Serif({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
   title: "PassCrypt",

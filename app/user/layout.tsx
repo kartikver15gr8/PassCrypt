@@ -19,7 +19,7 @@ export default function RootLayout({
     <>
       <div className="flex min-h-screen">
         <Sidebar />
-        <div className="bg-slate-100 w-full">{children}</div>
+        <div className="bg-[#ECECEF] w-full">{children}</div>
       </div>
     </>
   );

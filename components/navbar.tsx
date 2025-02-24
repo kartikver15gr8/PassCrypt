@@ -6,7 +6,7 @@ import { useSession } from "next-auth/react";
 import { signOut } from "next-auth/react";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import passlogo from "@/public/passlogo.png";
+import passlogo from "@/public/icons/passlogo.svg";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { toast } from "sonner";

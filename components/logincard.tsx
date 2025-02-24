@@ -8,7 +8,7 @@ import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 import { throttle } from "./user/throttle";
-import passlogo from "@/public/passlogo.png";
+import passlogo from "@/public/icons/passlogo.svg";
 import Image from "next/image";
 import Link from "next/link";
 import { toast } from "sonner";

@@ -3,7 +3,7 @@ import { signOut } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 import Details from "./details";
 import Image from "next/image";
-import passlogo from "@/public/passlogo.png";
+import passlogo from "@/public/icons/passlogo.svg";
 import Link from "next/link";
 
 export default function AllItems() {

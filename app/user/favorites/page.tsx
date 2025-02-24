@@ -3,7 +3,7 @@ import { FavPass } from "./favPass";
 import { LoginDetails } from "@/components/user/logindetails";
 import { FavCards } from "./favCards";
 import Image from "next/image";
-import passlogo from "@/public/passlogo.png";
+import passlogo from "@/public/icons/passlogo.svg";
 import { CardDetails } from "@/components/user/carddetails";
 import { NoteDetails } from "@/components/user/notesdetails";
 import { FavNotes } from "./favNotes";

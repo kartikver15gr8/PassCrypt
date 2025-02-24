@@ -6,7 +6,7 @@ import axios from "axios";
 import { useRouter, redirect } from "next/navigation";
 import Add from "@/app/user/passwords/add/page";
 import { useSession } from "next-auth/react";
-import passlogo from "@/public/passlogo.png";
+import passlogo from "@/public/icons/passlogo.svg";
 import Image from "next/image";
 import Link from "next/link";
 

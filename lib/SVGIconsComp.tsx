@@ -1,8 +1,15 @@
 import React from "react";
 
-const SVGIcon = ({ svgString }: { svgString: string }) => {
+const SVGIcon = ({
+  svgString,
+  className,
+}: {
+  svgString: string;
+  className?: string;
+}) => {
   return (
     <div
+      className={className}
       dangerouslySetInnerHTML={{
         __html: svgString,
       }}

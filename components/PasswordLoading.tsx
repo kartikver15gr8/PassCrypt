@@ -1,16 +1,7 @@
-export default function Loading() {
+"use client";
+export default function PasswordLoading() {
   return (
     <div>
-      <div className="text-2xl font-bold text-sky-900 flex p-2 items-center h-16 shadow-md flex-row justify-between">
-        <p
-          className="inline-block animate-pulse"
-          style={{
-            animationDuration: "1s",
-          }}
-        >
-          Loading Passwords...
-        </p>
-      </div>
       <ul className="px-2 mt-4 list-none">
         {[...Array(10).keys()].map((i) => (
           <li className="mx-1" key={i}>

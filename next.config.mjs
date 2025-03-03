@@ -10,6 +10,14 @@ const nextConfig = {
         protocol: "https",
         hostname: "imgs.search.brave.com",
       },
+      {
+        protocol: "https",
+        hostname: "cdn.mos.cms.futurecdn.net",
+      },
+      {
+        protocol: "https",
+        hostname: "blog.waalaxy.com",
+      },
     ],
   },
 };
